@@ -1,0 +1,95 @@
+insert into paises
+    (cod_pais, nom_pais, local)
+values
+    (1, 'Argentina', 'ARG');
+
+
+-- Inserciones para la tabla 'provincias'
+INSERT INTO provincias
+    (cod_pais, cod_provincia, nom_provincia)
+VALUES
+    (1, 1, 'Buenos Aires');
+INSERT INTO provincias
+    (cod_pais, cod_provincia, nom_provincia)
+VALUES
+    (1, 2, 'Córdoba');
+INSERT INTO provincias
+    (cod_pais, cod_provincia, nom_provincia)
+VALUES
+    (1, 3, 'Santa Fe');
+INSERT INTO provincias
+    (cod_pais, cod_provincia, nom_provincia)
+VALUES
+    (1, 4, 'Mendoza');
+INSERT INTO provincias
+    (cod_pais, cod_provincia, nom_provincia)
+VALUES
+    (1, 5, 'Tucumán');
+
+-- Inserciones para la tabla 'localidades' (3 localidades por provincia)
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (1, 'La Plata', 1, 1);
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (2, 'Mar del Plata', 1, 1);
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (3, 'Bahía Blanca', 1, 1);
+
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (4, 'Córdoba Capital', 1, 2);
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (5, 'Villa Carlos Paz', 1, 2);
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (6, 'Río Cuarto', 1, 2);
+
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (7, 'Rosario', 1, 3);
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (8, 'Santa Fe Capital', 1, 3);
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (9, 'Rafaela', 1, 3);
+
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (10, 'Mendoza Capital', 1, 4);
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (11, 'San Rafael', 1, 4);
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (12, 'Godoy Cruz', 1, 4);
+
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (13, 'San Miguel de Tucumán', 1, 5);
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (14, 'Tafí Viejo', 1, 5);
+INSERT INTO localidades
+    (nro_localidad, nom_localidad, cod_pais, cod_provincia)
+VALUES
+    (15, 'Yerba Buena', 1, 5);
+
+

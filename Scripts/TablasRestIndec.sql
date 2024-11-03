@@ -1,14 +1,14 @@
 -- Crear bd IndecRest
 -- CREATE DATABASE indec_rest;
 -- Eliminar bd indec_rest
--- DROP DATABASE indec_rest;
+DROP TABLE paises;
 
 -- Crear tabla 'paises'
 CREATE TABLE paises
 (
     cod_pais INT PRIMARY KEY,
     nom_pais VARCHAR(100) NOT NULL,
-    local BIT NOT NULL
+    local VARCHAR(100) NOT NULL
 );
 
 -- Crear tabla 'provincias'

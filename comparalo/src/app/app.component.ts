@@ -4,14 +4,23 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { NavbarComponent } from "./components/navbar/navbar.component";
+import { NavbarComponent } from "./modules/core/layout/navbar/navbar.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterOutlet, NzIconModule, NzLayoutModule, NzMenuModule, NavbarComponent],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterOutlet,
+    NzIconModule,
+    NzLayoutModule,
+    NzMenuModule,
+    NavbarComponent
+  ],
+  template: `
+    <router-outlet></router-outlet>
+  `
 })
 export class AppComponent {
   isCollapsed = false;

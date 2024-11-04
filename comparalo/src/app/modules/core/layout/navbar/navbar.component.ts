@@ -4,11 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
-import { LocationService } from '../../services/location.service';
-import { ProductService } from '../../services/product.service';
+import { LocationService } from '../../../../services/location.service';
+import { ProductService } from '../../../../services/product.service';
 import { Observable } from 'rxjs';
-import { ILocation } from '../../models/location.model';
+import {
+  ILocation
 
+} from '../../models/location.model';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -18,10 +21,11 @@ import { ILocation } from '../../models/location.model';
     NzInputModule,
     NzIconModule,
     NzBadgeModule,
+    RouterModule,
   ],
   template: `
     <div class="navbar">
-      <div class="logo">Comparalo</div>
+      <div class="logo" [routerLink]="['/home']">Comparalo</div>
       <ng-container *ngIf="showSearchBar">
         <div class="search">
           <nz-input-group [nzSuffix]="suffixIconSearch">
@@ -62,6 +66,7 @@ import { ILocation } from '../../models/location.model';
       font-size: 1.5rem;
       font-weight: bold;
       margin-right: 2rem;
+      cursor: pointer;
     }
     .search {
       flex: 1;

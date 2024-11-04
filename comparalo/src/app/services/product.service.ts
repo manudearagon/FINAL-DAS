@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { Product } from '../models/product.model';
+import { Product } from '../modules/products/models/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
   private currentSearchResults = new BehaviorSubject<Product[]>([]);
-  
+
   private suggestedSearches = [
     'Aceite de oliva',
     'Leche',
@@ -48,7 +48,7 @@ export class ProductService {
 
   searchProducts(query: string): void {
     // Simulate API call
-    const results = this.mockProducts.filter(product => 
+    const results = this.mockProducts.filter(product =>
       product.name.toLowerCase().includes(query.toLowerCase())
     );
     this.currentSearchResults.next(results);

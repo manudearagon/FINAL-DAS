@@ -5,7 +5,7 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { Product } from '../../models/product.model';
-import { ProductService } from '../../services/product.service';
+import { ProductService } from '../../../../services/product.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { SearchFiltersComponent } from '../search-filters/search-filters.component';
 

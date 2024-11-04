@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { LocationService } from '../../services/location.service';
+import { LocationService } from '../../../../services/location.service';
 import { Province } from '../../models/location.model';
 import { CommonModule } from '@angular/common';
 

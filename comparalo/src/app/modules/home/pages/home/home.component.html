@@ -1,0 +1,26 @@
+<app-navbar [showSearchBar]="false"></app-navbar>
+<app-location-modal *ngIf="showLocationModal"></app-location-modal>
+
+<div class="home-search">
+  <h1>Encuentra los mejores precios</h1>
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      (keyup.enter)="onSearch()"
+      placeholder="Busca productos..."
+      class="main-search"
+    />
+    <div class="suggestions">
+      <p>Prueba buscando:</p>
+      <div class="suggestion-tags">
+        <span
+          *ngFor="let suggestion of suggestedSearches"
+          (click)="onSuggestionClick(suggestion)"
+        >
+          {{ suggestion }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

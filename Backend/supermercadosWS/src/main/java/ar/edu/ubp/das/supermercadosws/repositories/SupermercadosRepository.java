@@ -1,4 +1,5 @@
 package ar.edu.ubp.das.supermercadosws.repositories;
+import ar.edu.ubp.das.supermercadosws.beans.SucursalBean;
 import ar.edu.ubp.das.supermercadosws.beans.SupermercadoBean;
 import ar.edu.ubp.das.supermercadosws.components.SimpleJdbcCallFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,11 @@ public class SupermercadosRepository {
                 .addValue("telefonos", supermercado.getTelefonos());
 
         jdbcCallFactory.execute("sp_insertar_supermercado", "dbo", params);
+    }
+
+    public List<SucursalBean> getSucursales() {
+        SqlParameterSource params = new MapSqlParameterSource();
+        return jdbcCallFactory.executeQuery("sp_obtener_sucursales", "dbo", params, "sucursales" , SucursalBean.class);
     }
 
 }

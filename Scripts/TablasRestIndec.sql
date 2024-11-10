@@ -1,7 +1,5 @@
 -- Crear bd IndecRest
 -- CREATE DATABASE indec_rest;
--- Eliminar bd indec_rest
-DROP TABLE paises;
 
 -- Crear tabla 'paises'
 CREATE TABLE paises

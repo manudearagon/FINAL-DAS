@@ -1,5 +1,6 @@
 package ar.edu.ubp.das.supermercadosws.endpoints;
-import ar.edu.ubp.das.supermercadosws.beans.SupermercadoBean;
+//import ar.edu.ubp.das.supermercadosws.beans.SupermercadoBean;
+import ar.edu.ubp.das.supermercadosws.beans.*;
 import ar.edu.ubp.das.supermercadosws.services.SupermercadosWs;
 import ar.edu.ubp.das.supermercadosws.services.jaxws.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,15 @@ public class SupermercadosEndpoints {
         List<SupermercadoBean> supermercados = service.GetSupermercados(request.getCuit());
         GetSupermercadosResponse response = new GetSupermercadosResponse();
         response.setSupermercadosResponse(supermercados);
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetSucursalesRequest")
+    @ResponsePayload
+    public GetSucursalesResponse getSucursales(@RequestPayload GetSucursales request) {
+        List<SucursalBean> sucursales = service.GetSucursales();
+        GetSucursalesResponse response = new GetSucursalesResponse();
+        response.setSucursalesResponse(sucursales);
         return response;
     }
 }

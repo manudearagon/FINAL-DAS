@@ -1,9 +1,26 @@
--- Crear tabla 'paises'
+-- Drop todas las tablas de la base de datos
+DROP TABLE IF EXISTS productos_sucursales;
+DROP TABLE IF EXISTS tipos_productos_marcas;
+DROP TABLE IF EXISTS productos;
+DROP TABLE IF EXISTS tipos_productos;
+DROP TABLE IF EXISTS marcas_productos;
+DROP TABLE IF EXISTS categorias_productos;
+DROP TABLE IF EXISTS rubros_productos;
+DROP TABLE IF EXISTS tipos_servicios_sucursales;
+DROP TABLE IF EXISTS tipos_servicios_supermercado;
+DROP TABLE IF EXISTS horarios_sucursales;
+DROP TABLE IF EXISTS sucursales;
+DROP TABLE IF EXISTS supermercado;
+DROP TABLE IF EXISTS empresas_externas;
+DROP TABLE IF EXISTS localidades;
+DROP TABLE IF EXISTS provincias;
+DROP TABLE IF EXISTS paises;
+
 CREATE TABLE paises
 (
     cod_pais INT PRIMARY KEY,
     nom_pais VARCHAR(100) NOT NULL,
-    local BIT NOT NULL
+    local VARCHAR(100) NOT NULL
 );
 
 -- Crear tabla 'provincias'
@@ -26,6 +43,7 @@ CREATE TABLE localidades
     CONSTRAINT AK1_localidades UNIQUE (nom_localidad),
     FOREIGN KEY (cod_pais, cod_provincia) REFERENCES provincias(cod_pais, cod_provincia)
 );
+
 
 -- Crear tabla 'empresas_externas'
 CREATE TABLE empresas_externas

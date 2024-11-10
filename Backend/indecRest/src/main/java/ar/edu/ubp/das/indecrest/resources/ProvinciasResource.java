@@ -16,5 +16,4 @@ public class ProvinciasResource {
     public ResponseEntity<?> getAllProvincias(@RequestBody GetProvinciasRequestBean requestBean) {
         return ResponseEntity.ok(provinciasRepository.getAllProvincias(requestBean.getNomProvincia()));
     }
-
 }

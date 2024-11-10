@@ -1,9 +1,11 @@
+-- DROP DATABASE IF EXISTS supermercado_rest_A;
+-- CREATE DATABASE supermercado_rest_A;
 -- Crear tabla 'paises'
 CREATE TABLE paises
 (
     cod_pais INT PRIMARY KEY,
     nom_pais VARCHAR(100) NOT NULL,
-    local BIT NOT NULL
+    local VARCHAR(100) NOT NULL
 );
 
 -- Crear tabla 'provincias'
@@ -26,6 +28,7 @@ CREATE TABLE localidades
     CONSTRAINT AK1_localidades UNIQUE (nom_localidad),
     FOREIGN KEY (cod_pais, cod_provincia) REFERENCES provincias(cod_pais, cod_provincia)
 );
+
 
 -- Crear tabla 'empresas_externas'
 CREATE TABLE empresas_externas

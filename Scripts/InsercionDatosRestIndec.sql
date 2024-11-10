@@ -1,3 +1,22 @@
+-- Limpiar toda la informacion de todas las tablas
+-- DELETE FROM paises;
+-- DELETE FROM provincias;
+-- DELETE FROM localidades;
+-- DELETE FROM supermercados;
+-- DELETE FROM sucursales;
+-- DELETE FROM servicios_supermercados;
+-- DELETE FROM rubros_productos;
+-- DELETE FROM categorias_productos;
+-- DELETE FROM marcas_productos;
+-- DELETE FROM tipos_productos;
+-- DELETE FROM tipos_productos_marcas;
+-- DELETE FROM productos;
+-- DELETE FROM productos_supermercados;
+-- DELETE FROM idiomas;
+-- DELETE FROM idiomas_rubros_productos;
+-- DELETE FROM idiomas_categorias_productos;
+-- DELETE FROM idiomas_tipos_productos;
+
 insert into paises
     (cod_pais, nom_pais, local)
 values
@@ -97,39 +116,52 @@ VALUES
 INSERT INTO supermercados
     (razon_social, cuit)
 VALUES
-    ('Supermercado A', '30-12345678-1');
+    ('Supermercado Rest', '30-12345678-1');
+-- 1008
 INSERT INTO supermercados
     (razon_social, cuit)
 VALUES
-    ('Supermercado B', '30-87654321-2');
-INSERT INTO supermercados
-    (razon_social, cuit)
-VALUES
-    ('Supermercado C', '30-13579135-3');
+    ('Supermercado WS', '30-87654321-2');
+-- 1009
+
 
 -- Insertar en la tabla 'sucursales'
 INSERT INTO sucursales
     (nro_supermercado, nro_sucursal, nom_sucursal, calle, nro_calle, telefonos, coord_latitud, coord_longitud, horario_sucursal, servicios_disponibles, nro_localidad, habilitada)
 VALUES
-    (1, 1, 'Sucursal Centro', 'Calle Falsa', 123, '1111-2222', -34.6037, -58.3816, '9:00-18:00', 'Estacionamiento, WiFi', 1, 1);
+    (1010, 1, 'Sucursal Centro', 'Calle Falsa', 123, '1111-2222', -34.6037, -58.3816, '9:00-18:00', 'Estacionamiento, WiFi', 1, 1);
 INSERT INTO sucursales
     (nro_supermercado, nro_sucursal, nom_sucursal, calle, nro_calle, telefonos, coord_latitud, coord_longitud, horario_sucursal, servicios_disponibles, nro_localidad, habilitada)
 VALUES
-    (1, 2, 'Sucursal Norte', 'Calle Verdadera', 456, '2222-3333', -34.6117, -58.3895, '9:00-20:00', 'Estacionamiento', 2, 1);
+    (1010, 2, 'Sucursal Norte', 'Calle Verdadera', 456, '2222-3333', -34.6117, -58.3895, '9:00-20:00', 'Estacionamiento', 2, 1);
 INSERT INTO sucursales
     (nro_supermercado, nro_sucursal, nom_sucursal, calle, nro_calle, telefonos, coord_latitud, coord_longitud, horario_sucursal, servicios_disponibles, nro_localidad, habilitada)
 VALUES
-    (2, 1, 'Sucursal Oeste', 'Calle Imaginaria', 789, '3333-4444', -34.6181, -58.4011, '10:00-19:00', 'Estacionamiento, Delivery', 3, 1);
+    (1010, 3, 'Sucursal Oeste', 'Calle Imaginaria', 789, '3333-4444', -34.6181, -58.4011, '10:00-19:00', 'Estacionamiento, Delivery', 3, 1);
+INSERT INTO sucursales
+    (nro_supermercado, nro_sucursal, nom_sucursal, calle, nro_calle, telefonos, coord_latitud, coord_longitud, horario_sucursal, servicios_disponibles, nro_localidad, habilitada)
+VALUES
+    (1011, 4, 'Sucursal Cofico', 'Avenida Siempre Viva', 742, '4444-5555', -34.6037, -58.3816, '9:00-18:00', 'Estacionamiento, WiFi', 1, 1);
+INSERT INTO sucursales
+    (nro_supermercado, nro_sucursal, nom_sucursal, calle, nro_calle, telefonos, coord_latitud, coord_longitud, horario_sucursal, servicios_disponibles, nro_localidad, habilitada)
+VALUES
+    (1011, 5, 'Sucursal Cayetano', 'Calle Real', 123, '5555-6666', -34.6117, -58.3895, '9:00-20:00', 'Estacionamiento', 2, 1);
+INSERT INTO sucursales
+    (nro_supermercado, nro_sucursal, nom_sucursal, calle, nro_calle, telefonos, coord_latitud, coord_longitud, horario_sucursal, servicios_disponibles, nro_localidad, habilitada)
+VALUES
+    (1011, 6, 'Sucursal Si', 'Calle Imaginaria', 456, '6666-7777', -34.6181, -58.4011, '10:00-19:00', 'Estacionamiento, Delivery', 3, 0);
+
+
 
 -- Insertar en la tabla 'servicios_supermercados'
 INSERT INTO servicios_supermercados
     (nro_supermercado, url_servicio, tipo_servicio, token_servicio, fecha_ult_act_servicio)
 VALUES
-    (1, 'https://supermercadoa.com/api', 'Online Orders', 'TOKEN12345', GETDATE());
+    (1010, 'http://localhost:8080/api/supermarkets/sucursales', 'Rest', 'TOKEN12345', GETDATE());
 INSERT INTO servicios_supermercados
     (nro_supermercado, url_servicio, tipo_servicio, token_servicio, fecha_ult_act_servicio)
 VALUES
-    (2, 'https://supermercadob.com/api', 'Customer Support', 'TOKEN67890', GETDATE());
+    (1011, 'http://localhost:8081/services/supermercados', 'WS', 'TOKEN67890', GETDATE());
 
 -- Insertar en la tabla 'rubros_productos'
 INSERT INTO rubros_productos
@@ -145,19 +177,38 @@ INSERT INTO rubros_productos
 VALUES
     ('Limpieza', 1);
 
+
 -- Insertar en la tabla 'categorias_productos'
 INSERT INTO categorias_productos
     (nom_categoria, nro_rubro, vigente)
 VALUES
-    ('Lácteos', 1, 1);
+    ('Lácteos', 1014, 1);
 INSERT INTO categorias_productos
     (nom_categoria, nro_rubro, vigente)
 VALUES
-    ('Gaseosas', 2, 1);
+    ('Gaseosas', 1015, 1);
 INSERT INTO categorias_productos
     (nom_categoria, nro_rubro, vigente)
 VALUES
-    ('Detergentes', 3, 1);
+    ('Detergentes', 1016, 1);
+INSERT INTO categorias_productos
+    (nom_categoria, nro_rubro, vigente)
+VALUES
+    ('Carnes', 1014, 1);
+INSERT INTO categorias_productos
+    (nom_categoria, nro_rubro, vigente)
+VALUES
+    ('Verduras', 1014, 1);
+INSERT INTO categorias_productos
+    (nom_categoria, nro_rubro, vigente)
+VALUES
+    ('Frutas', 1014, 1);
+INSERT INTO categorias_productos
+    (nom_categoria, nro_rubro, vigente)
+VALUES
+    ('Cereales', 1014, 1);
+
+
 
 -- Insertar en la tabla 'marcas_productos'
 INSERT INTO marcas_productos
@@ -187,47 +238,162 @@ INSERT INTO tipos_productos
 VALUES
     (3, 'Paquete');
 
+
 -- Insertar en la tabla 'tipos_productos_marcas'
 INSERT INTO tipos_productos_marcas
     (nro_marca, nro_tipo_producto, vigente)
 VALUES
-    (1, 1, 1);
+    (1014, 1, 1);
 INSERT INTO tipos_productos_marcas
     (nro_marca, nro_tipo_producto, vigente)
 VALUES
-    (2, 2, 1);
+    (1015, 2, 1);
 INSERT INTO tipos_productos_marcas
     (nro_marca, nro_tipo_producto, vigente)
 VALUES
-    (3, 3, 1);
+    (1016, 3, 1);
+
 
 -- Insertar en la tabla 'productos'
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
 VALUES
-    ('1234567890123', 'Producto A', 'Descripcion del producto A', 1, NULL, 1, 1, 1);
+    ('1234567890123', 'Arroz', 'Paquete de arroz 1kg', 1029, NULL, 1014, 3, 1);
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
 VALUES
-    ('2345678901234', 'Producto B', 'Descripcion del producto B', 2, NULL, 2, 2, 1);
+    ('2345678901234', 'Fideos', 'Paquete de fideos 500g', 1029, NULL, 1014, 3, 1);
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
 VALUES
-    ('3456789012345', 'Producto C', 'Descripcion del producto C', 3, NULL, 3, 3, 1);
+    ('3456789012345', 'Aceite', 'Botella de aceite 1L', 1029, NULL, 1015, 1, 1);
+-- Productos de la Canasta Básica Alimenticia
+INSERT INTO productos
+    (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
+VALUES
+    ('4567890123456', 'Leche', 'Botella de leche 1L', 1023, NULL, 1016, 1, 1);
+INSERT INTO productos
+    (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
+VALUES
+    ('5678901234567', 'Pan', 'Pan de molde 500g', 1029, NULL, 1016, 2, 1);
+INSERT INTO productos
+    (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
+VALUES
+    ('6789012345678', 'Azúcar', 'Paquete de azúcar 1kg', 1029, NULL, 1014, 3, 1);
+
+INSERT INTO productos
+    (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
+VALUES
+    ('7890123456789', 'Yerba Mate', 'Paquete de yerba mate 1kg', 1023, NULL, 1015, 3, 1);
+INSERT INTO productos
+    (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
+VALUES
+    ('8901234567890', 'Harina', 'Paquete de harina 1kg', 1029, NULL, 1014, 3, 1);
+INSERT INTO productos
+    (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
+VALUES
+    ('9012345678901', 'Huevos', 'Docena de huevos', 1023, NULL, 1016, 2, 1);
+
+INSERT INTO productos
+    (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
+VALUES
+    ('0123456789012', 'Pollo', 'Kilo de pollo fresco', 1026, NULL, 1015, 3, 1);
+INSERT INTO productos
+    (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
+VALUES
+    ('1234509876543', 'Carne', 'Kilo de carne vacuna', 1026, NULL, 1015, 3, 1);
+INSERT INTO productos
+    (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
+VALUES
+    ('2345609876543', 'Tomate', 'Kilo de tomate', 1027, NULL, 1015, 3, 1);
+
+INSERT INTO productos
+    (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
+VALUES
+    ('3456709876543', 'Manzana', 'Kilo de manzana', 1028, NULL, 1015, 3, 1);
+INSERT INTO productos
+    (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
+VALUES
+    ('4567809876543', 'Papas', 'Kilo de papas', 1027, NULL, 1015, 3, 1);
+INSERT INTO productos
+    (cod_barra, nom_producto, desc_producto, nro_categoria, imagen, nro_marca, nro_tipo_producto, vigente)
+VALUES
+    ('5678909876543', 'Zanahoria', 'Kilo de zanahorias', 1027, NULL, 1015, 3, 1);
 
 -- Insertar en la tabla 'productos_supermercados'
 INSERT INTO productos_supermercados
     (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
 VALUES
-    (1, 1, '1234567890123', 50.75, GETDATE());
+    (1010, 1, '1234567890123', 100.00, GETDATE());
 INSERT INTO productos_supermercados
     (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
 VALUES
-    (1, 2, '2345678901234', 75.25, GETDATE());
+    (1010, 1, '2345678901234', 50.00, GETDATE());
 INSERT INTO productos_supermercados
     (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
 VALUES
-    (2, 1, '3456789012345', 100.99, GETDATE());
+    (1010, 1, '3456789012345', 150.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 1, '4567890123456', 80.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 1, '5678901234567', 70.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 1, '6789012345678', 60.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 1, '7890123456789', 90.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 1, '8901234567890', 40.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 1, '9012345678901', 30.00, GETDATE());
+
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 2, '1234567890123', 110.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 2, '2345678901234', 60.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 2, '3456789012345', 160.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 2, '4567890123456', 90.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 2, '5678901234567', 80.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 2, '6789012345678', 70.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 2, '7890123456789', 100.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 2, '8901234567890', 50.00, GETDATE());
+INSERT INTO productos_supermercados
+    (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
+VALUES
+    (1010, 2, '9012345678901 ', 40.00, GETDATE());
 
 -- Insertar en la tabla 'idiomas'
 INSERT INTO idiomas
@@ -247,29 +413,30 @@ VALUES
 INSERT INTO idiomas_rubros_productos
     (nro_rubro, cod_idioma, rubro)
 VALUES
-    (1, 'es', 'Alimentos');
+    (1014, 'es', 'Alimentos');
 INSERT INTO idiomas_rubros_productos
     (nro_rubro, cod_idioma, rubro)
 VALUES
-    (2, 'es', 'Bebidas');
+    (1015, 'es', 'Bebidas');
 INSERT INTO idiomas_rubros_productos
     (nro_rubro, cod_idioma, rubro)
 VALUES
-    (3, 'es', 'Limpieza');
+    (1016, 'es', 'Limpieza');
+
 
 -- Insertar en la tabla 'idiomas_categorias_productos'
 INSERT INTO idiomas_categorias_productos
     (nro_categoria, cod_idioma, categoria)
 VALUES
-    (1, 'es', 'Lácteos');
+    (1023, 'es', 'Lácteos');
 INSERT INTO idiomas_categorias_productos
     (nro_categoria, cod_idioma, categoria)
 VALUES
-    (2, 'es', 'Gaseosas');
+    (1024, 'es', 'Gaseosas');
 INSERT INTO idiomas_categorias_productos
     (nro_categoria, cod_idioma, categoria)
 VALUES
-    (3, 'es', 'Detergentes');
+    (1025, 'es', 'Detergentes');
 
 -- Insertar en la tabla 'idiomas_tipos_productos'
 INSERT INTO idiomas_tipos_productos
@@ -284,3 +451,5 @@ INSERT INTO idiomas_tipos_productos
     (nro_tipo_producto, cod_idioma, tipo_producto)
 VALUES
     (3, 'es', 'Paquete');
+
+

@@ -1,6 +1,9 @@
-package ar.edu.ubp.das.indecrest.beans;
+package ar.edu.ubp.das.indecrest.beans.responses;
 
-public class SucursalBean {
+import java.util.Collections;
+import java.util.List;
+
+public class SucursalesPorSupermercadoBean {
     private int nroSupermercado;
     private int nroSucursal;
     private String nomSucursal;
@@ -14,40 +17,50 @@ public class SucursalBean {
     private int nroLocalidad;
     private boolean habilitada;
 
-    public SucursalBean(
-            int nroSupermercado,
-            int nroSucursal,
-            String nomSucursal,
-            String calle,
-            int nroCalle,
-            String telefonos,
-            float coordLatitud,
-            float coordLongitud,
-            String horarioSucursal,
-            String serviciosDisponibles,
-            int nroLocalidad,
-            boolean habilitada
-    ) {
-        this.nroSupermercado = nroSupermercado;
-        this.nroSucursal = nroSucursal;
-        this.nomSucursal = nomSucursal;
-        this.calle = calle;
-        this.nroCalle = nroCalle;
-        this.telefonos = telefonos;
-        this.coordLatitud = coordLatitud;
-        this.coordLongitud = coordLongitud;
-        this.horarioSucursal = horarioSucursal;
-        this.serviciosDisponibles = serviciosDisponibles;
-        this.nroLocalidad = nroLocalidad;
-        this.habilitada = habilitada;
-    }
-
     public int getNroSupermercado() {
         return nroSupermercado;
     }
 
     public void setNroSupermercado(int nroSupermercado) {
         this.nroSupermercado = nroSupermercado;
+    }
+
+    public void setTelefonos(String telefonos) {
+        this.telefonos = telefonos;
+    }
+
+    public void setCoordLatitud(float coordLatitud) {
+        this.coordLatitud = coordLatitud;
+    }
+
+    public void setCoordLongitud(float coordLongitud) {
+        this.coordLongitud = coordLongitud;
+    }
+
+    public String getHorarioSucursal() {
+        return horarioSucursal;
+    }
+
+    public void setHorarioSucursal(String horarioSucursal) {
+        this.horarioSucursal = horarioSucursal;
+    }
+
+    public String getServiciosDisponibles() {
+        return serviciosDisponibles;
+    }
+
+    public void setServiciosDisponibles(String serviciosDisponibles) {
+        this.serviciosDisponibles = serviciosDisponibles;
+    }
+
+    private String razonSocial;
+
+    public String getRazonSocial() {
+        return razonSocial;
+    }
+
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
     }
 
     public int getNroSucursal() {
@@ -82,44 +95,28 @@ public class SucursalBean {
         this.nroCalle = nroCalle;
     }
 
-    public String getTelefonos() {
-        return telefonos;
+    public List<String> getTelefonos() {
+        return Collections.singletonList(telefonos);
     }
 
-    public void setTelefonos(String telefonos) {
-        this.telefonos = telefonos;
+    public void setTelefonos(List<String> telefonos) {
+        this.telefonos = String.valueOf(telefonos);
     }
 
-    public float getCoordLatitud() {
+    public double getCoordLatitud() {
         return coordLatitud;
     }
 
-    public void setCoordLatitud(float coordLatitud) {
-        this.coordLatitud = coordLatitud;
+    public void setCoordLatitud(double coordLatitud) {
+        this.coordLatitud = (float) coordLatitud;
     }
 
-    public float getCoordLongitud() {
+    public double getCoordLongitud() {
         return coordLongitud;
     }
 
-    public void setCoordLongitud(float coordLongitud) {
-        this.coordLongitud = coordLongitud;
-    }
-
-    public String getHorarioSucursal() {
-        return horarioSucursal;
-    }
-
-    public void setHorarioSucursal(String horarioSucursal) {
-        this.horarioSucursal = horarioSucursal;
-    }
-
-    public String getServiciosDisponibles() {
-        return serviciosDisponibles;
-    }
-
-    public void setServiciosDisponibles(String serviciosDisponibles) {
-        this.serviciosDisponibles = serviciosDisponibles;
+    public void setCoordLongitud(double coordLongitud) {
+        this.coordLongitud = (float) coordLongitud;
     }
 
     public int getNroLocalidad() {

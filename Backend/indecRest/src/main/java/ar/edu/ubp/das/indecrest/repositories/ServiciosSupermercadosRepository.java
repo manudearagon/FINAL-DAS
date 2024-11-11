@@ -25,7 +25,6 @@ public class ServiciosSupermercadosRepository {
     private SimpleJdbcCallFactory jdbcCallFactory;
 
     public void getServiciosSupermercados() {
-        RestTemplate restTemplate = new RestTemplate();
         SqlParameterSource params = new MapSqlParameterSource();
         List<ServiciosSupermercadoBean> services = jdbcCallFactory.executeQuery(
                 "sp_obtener_servicios_supermercados", "dbo", params, "servicios_supermercados", ServiciosSupermercadoBean.class
@@ -37,13 +36,14 @@ public class ServiciosSupermercadosRepository {
                 String password = "pwd_admin";
                 String auth = username + ":" + password;
                 String encodedAuth = Base64.getEncoder().encodeToString(auth.getBytes());
-                if (!Objects.equals(service.getTipoServicio(), "Rest")) {
-
+                if (Objects.equals(service.getTipoServicio(), "WS")) {
+                    return;
                 } else {
-                      HttpHeaders headers = new HttpHeaders();
-                      headers.set("Authorization", "Basic " + encodedAuth);
+                    RestTemplate restTemplate = new RestTemplate();
+                    HttpHeaders headers = new HttpHeaders();
+                    headers.set("Authorization", "Basic " + encodedAuth);
 
-                      HttpEntity<String> entity = new HttpEntity<>(headers);
+                    HttpEntity<String> entity = new HttpEntity<>(headers);
 
                       String url = service.getUrlServicio();
                       ResponseEntity<SucursalResponseBean[]> response = restTemplate.exchange(url, HttpMethod.POST, entity, SucursalResponseBean[].class);
@@ -53,7 +53,7 @@ public class ServiciosSupermercadosRepository {
                           for (SucursalResponseBean sucursal : sucursales) {
                               SqlParameterSource sucursalParams = new MapSqlParameterSource()
                                       .addValue("nro_supermercado", service.getNroSupermercado())
-                                      .addValue("nro_sucursal", 1)
+                                      .addValue("nro_sucursal", sucursal.getNroSucursal())
                                       .addValue("nom_sucursal", sucursal.getNomSucursal())
                                       .addValue("calle", sucursal.getCalle())
                                       .addValue("nro_calle", sucursal.getNroCalle())
@@ -66,7 +66,7 @@ public class ServiciosSupermercadosRepository {
                               jdbcCallFactory.execute("sp_actualizar_sucursal", "dbo", sucursalParams);
                           }
                       }
-                      }
+                }
             } catch (Exception e) {
                 System.err.println("Error obteniendo o actualizando sucursales desde URL: " + service.getUrlServicio());
                 e.printStackTrace();

@@ -22,4 +22,9 @@ public class SucursalesResource {
     public ResponseEntity<?> getSucursales(@RequestBody GetSucursalesRequestBean request){
         return ResponseEntity.ok(sucursalesRepository.getSucursales(request.getNroSupermercado(), request.getNroLocalidad()));
     }
+
+    @PostMapping("/sucursales_por_supermercado")
+    public ResponseEntity<?> getSucursalesPorSupermercado(){
+        return ResponseEntity.ok(sucursalesRepository.getSucursalesPorSupermercado());
+    }
 }

@@ -125,3 +125,15 @@
 --         );
 --     END
 -- END;
+
+
+-- Generar sp para obtener las sucursales agregando el razon_social del supermercado como columna
+-- DROP PROCEDURE IF EXISTS sp_obtener_sucursales_con_supermercado;
+CREATE PROCEDURE sp_obtener_sucursales_con_supermercado
+AS
+BEGIN
+    SELECT s.*, razon_social
+    FROM sucursales s
+        JOIN supermercados sm ON s.nro_supermercado = sm.nro_supermercado;
+END;
+

@@ -1,12 +1,14 @@
 package ar.edu.ubp.das.indecrest.repositories;
 import ar.edu.ubp.das.indecrest.beans.SucursalBean;
+import ar.edu.ubp.das.indecrest.beans.SupermercadosConSucursalesBean;
+import ar.edu.ubp.das.indecrest.beans.responses.SucursalesPorSupermercadoBean;
 import ar.edu.ubp.das.indecrest.components.SimpleJdbcCallFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class SucursalesRepository {
@@ -26,4 +28,47 @@ public class SucursalesRepository {
                 .addValue("nroSucursal", nroSucursal);
         return jdbcCallFactory.executeQuery("sp_obtener_datos_sucursal", "dbo", params,"sucursales" , SucursalBean.class);
     }
+
+    public List<SupermercadosConSucursalesBean> getSucursalesPorSupermercado() {
+        SqlParameterSource params = new MapSqlParameterSource();
+        List<SucursalesPorSupermercadoBean> sucursalesList = jdbcCallFactory.executeQuery(
+                "sp_obtener_sucursales_con_supermercado", "dbo", params, "sucursales", SucursalesPorSupermercadoBean.class
+        );
+
+        Map<String, List<SucursalBean>> supermercadosMap = new HashMap<>();
+
+        sucursalesList.forEach(sucursal -> {
+            String razonSocial = sucursal.getRazonSocial();
+
+            SucursalBean sucursalBean = new SucursalBean(
+                    sucursal.getNroSupermercado(),
+                    sucursal.getNroSucursal(),
+                    sucursal.getNomSucursal(),
+                    sucursal.getCalle(),
+                    sucursal.getNroCalle(),
+                    String.join(", ", sucursal.getTelefonos()),
+                    (float) sucursal.getCoordLatitud(),
+                    (float) sucursal.getCoordLongitud(),
+                    sucursal.getHorarioSucursal(),
+                    sucursal.getServiciosDisponibles(),
+                    sucursal.getNroLocalidad(),
+                    sucursal.isHabilitada()
+            );
+
+            supermercadosMap
+                    .computeIfAbsent(razonSocial, k -> new ArrayList<>())
+                    .add(sucursalBean);
+        });
+
+        List<SupermercadosConSucursalesBean> supermercadosConSucursales = new ArrayList<>();
+        supermercadosMap.forEach((razonSocial, sucursales) -> {
+            SupermercadosConSucursalesBean supermercadoBean = new SupermercadosConSucursalesBean();
+            supermercadoBean.setRazonSocial(razonSocial);
+            supermercadoBean.setSucursalList(sucursales);
+            supermercadosConSucursales.add(supermercadoBean);
+        });
+
+        return supermercadosConSucursales;
+    }
+
 }

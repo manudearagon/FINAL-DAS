@@ -1,7 +1,6 @@
 package ar.edu.ubp.das.indecrest.repositories;
 
 import ar.edu.ubp.das.indecrest.beans.ServiciosSupermercadoBean;
-import ar.edu.ubp.das.indecrest.beans.SucursalBean;
 import ar.edu.ubp.das.indecrest.beans.responses.SucursalResponseBean;
 import ar.edu.ubp.das.indecrest.components.SimpleJdbcCallFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,7 @@ public class ServiciosSupermercadosRepository {
     @Autowired
     private SimpleJdbcCallFactory jdbcCallFactory;
 
-    public void getServiciosSupermercados() {
+    public void updateSucursales() {
         SqlParameterSource params = new MapSqlParameterSource();
         List<ServiciosSupermercadoBean> services = jdbcCallFactory.executeQuery(
                 "sp_obtener_servicios_supermercados", "dbo", params, "servicios_supermercados", ServiciosSupermercadoBean.class

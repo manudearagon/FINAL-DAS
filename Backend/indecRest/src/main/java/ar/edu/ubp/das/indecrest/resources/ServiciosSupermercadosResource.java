@@ -1,7 +1,7 @@
 package ar.edu.ubp.das.indecrest.resources;
 import ar.edu.ubp.das.indecrest.repositories.ServiciosSupermercadosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +15,6 @@ public class ServiciosSupermercadosResource {
 
     @PostMapping("/actualizar_sucursales")
     public void getAllServiciosSupermercados() {
-        serviciosSupermercadosRepository.getServiciosSupermercados();
+        serviciosSupermercadosRepository.updateSucursales();
     }
 }

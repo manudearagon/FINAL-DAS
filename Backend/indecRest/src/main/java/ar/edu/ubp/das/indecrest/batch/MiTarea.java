@@ -6,13 +6,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class MiTarea {
 
-//    @Autowired
+    @Autowired
+    private BatchProcessService batchProcessService;
 
 
     public void ejecutar() {
         System.out.println("Iniciando tarea de carga de sucursales");
         try {
-//            sucursalLoaderService.cargarSucursales();
+            batchProcessService.cargarSucursales();
             System.out.println("Tarea completada exitosamente");
         } catch (Exception e) {
             System.out.println("Error ejecutando la tarea: " + e.getMessage());

@@ -3,19 +3,24 @@
 -- DELETE FROM provincias;
 -- DELETE FROM localidades;
 -- DELETE FROM supermercados;
--- DELETE FROM sucursales;
 -- DELETE FROM servicios_supermercados;
--- DELETE FROM rubros_productos;
--- DELETE FROM categorias_productos;
--- DELETE FROM marcas_productos;
--- DELETE FROM tipos_productos;
--- DELETE FROM tipos_productos_marcas;
--- DELETE FROM productos;
--- DELETE FROM productos_supermercados;
--- DELETE FROM idiomas;
--- DELETE FROM idiomas_rubros_productos;
--- DELETE FROM idiomas_categorias_productos;
--- DELETE FROM idiomas_tipos_productos;
+-- SELECT * FROM sucursales
+-- DELETE FROM sucursales;
+-- -----
+DELETE FROM rubros_productos;
+DELETE FROM categorias_productos;
+DELETE FROM marcas_productos;
+DELETE FROM tipos_productos;
+DELETE FROM tipos_productos_marcas;
+DELETE FROM productos;
+DELETE FROM productos_supermercados;
+DELETE FROM idiomas;
+DELETE FROM idiomas_rubros_productos;
+DELETE FROM idiomas_categorias_productos;
+DELETE FROM idiomas_tipos_productos;
+
+SELECT *
+FROM supermercados
 
 insert into paises
     (cod_pais, nom_pais, local)

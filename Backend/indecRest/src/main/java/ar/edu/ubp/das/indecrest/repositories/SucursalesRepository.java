@@ -1,6 +1,7 @@
 package ar.edu.ubp.das.indecrest.repositories;
 import ar.edu.ubp.das.indecrest.beans.SucursalBean;
 import ar.edu.ubp.das.indecrest.beans.SupermercadosConSucursalesBean;
+import ar.edu.ubp.das.indecrest.beans.responses.SucursalSupermarketResponse;
 import ar.edu.ubp.das.indecrest.beans.responses.SucursalesPorSupermercadoBean;
 import ar.edu.ubp.das.indecrest.components.SimpleJdbcCallFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,4 +72,19 @@ public class SucursalesRepository {
         return supermercadosConSucursales;
     }
 
+
+    public void insertarSucursal(Integer nroSupermercado, SucursalSupermarketResponse sucursal){
+        SqlParameterSource params = new MapSqlParameterSource()
+                .addValue("nroSupermercado", nroSupermercado)
+                .addValue("nroSucursal", sucursal.getNroSucursal())
+                .addValue("nomSucursal", sucursal.getNomSucursal())
+                .addValue("calle", sucursal.getCalle())
+                .addValue("nroCalle", sucursal.getNroCalle())
+                .addValue("telefonos", String.join(",", sucursal.getTelefonos()))
+                .addValue("coordLatitud", sucursal.getCoordLatitud())
+                .addValue("coordLongitud", sucursal.getCoordLongitud())
+                .addValue("nroLocalidad", sucursal.getNroLocalidad())
+                .addValue("habilitada", sucursal.isHabilitada());
+        jdbcCallFactory.execute("sp_insertar_actualizar_sucursal", "dbo", params);
+    }
 }

@@ -23,6 +23,13 @@ public class ServiciosSupermercadosRepository {
     @Autowired
     private SimpleJdbcCallFactory jdbcCallFactory;
 
+    public List<ServiciosSupermercadoBean> getServiciosSupermercados() {
+        SqlParameterSource params = new MapSqlParameterSource();
+        return jdbcCallFactory.executeQuery(
+                "sp_obtener_servicios_supermercados", "dbo", params, "servicios_supermercados", ServiciosSupermercadoBean.class
+        );
+    }
+
     public void updateSucursales() {
         SqlParameterSource params = new MapSqlParameterSource();
         List<ServiciosSupermercadoBean> services = jdbcCallFactory.executeQuery(

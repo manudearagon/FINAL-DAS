@@ -27,4 +27,7 @@ public class SucursalesResource {
     public ResponseEntity<?> getSucursalesPorSupermercado(){
         return ResponseEntity.ok(sucursalesRepository.getSucursalesPorSupermercado());
     }
+
+
+
 }

@@ -139,6 +139,7 @@
 --         JOIN supermercados sm ON s.nro_supermercado = sm.nro_supermercado;
 -- END;
 
+-- -------------------------------------------------------------------------------------------
 -- Generar sp para insertar una sucursal en la base de datos, si hay una sucursal con el mismo nombre_sucursal y nro_supermercado, actualizarla
 -- El nro_sucursal es autoincremental
 -- DROP PROCEDURE IF EXISTS sp_insertar_actualizar_sucursal;
@@ -200,6 +201,66 @@
 --     END
 -- END;
 
--- SELECT *
--- FROM sucursales;
--- EXEC sp_insertar_actualizar_sucursal 1010, 'Sucursal 2', 'Calle 1', 123, '123456', -34.123456, -58.123456, 1, 1;
+
+-- ------------- Version 2 ----------------
+CREATE PROCEDURE sp_insertar_actualizar_sucursal
+    @nro_supermercado INT,
+    @nom_sucursal VARCHAR(100),
+    @calle VARCHAR(100),
+    @nro_calle INT,
+    @telefonos VARCHAR(100),
+    @coord_latitud DECIMAL(9,6),
+    @coord_longitud DECIMAL(9,6),
+    @nro_localidad INT,
+    @habilitada BIT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Verificar si la sucursal ya existe en la base de datos
+    IF EXISTS (
+        SELECT 1
+    FROM sucursales
+    WHERE nro_supermercado = @nro_supermercado
+        AND nom_sucursal = @nom_sucursal
+    )
+    BEGIN
+        -- Solo actualizar los registros si alguno de los datos ha cambiado
+        UPDATE sucursales
+        SET
+            calle = CASE WHEN calle <> @calle THEN @calle ELSE calle END,
+            nro_calle = CASE WHEN nro_calle <> @nro_calle THEN @nro_calle ELSE nro_calle END,
+            telefonos = CASE WHEN telefonos <> @telefonos THEN @telefonos ELSE telefonos END,
+            coord_latitud = CASE WHEN coord_latitud <> @coord_latitud THEN @coord_latitud ELSE coord_latitud END,
+            coord_longitud = CASE WHEN coord_longitud <> @coord_longitud THEN @coord_longitud ELSE coord_longitud END,
+            nro_localidad = CASE WHEN nro_localidad <> @nro_localidad THEN @nro_localidad ELSE nro_localidad END,
+            habilitada = CASE WHEN habilitada <> @habilitada THEN @habilitada ELSE habilitada END
+        WHERE
+            nro_supermercado = @nro_supermercado
+            AND nom_sucursal = @nom_sucursal;
+    END
+    ELSE
+    BEGIN
+        -- Obtener un nuevo nro_sucursal único en toda la tabla
+        DECLARE @nuevo_nro_sucursal INT;
+        SELECT @nuevo_nro_sucursal = ISNULL(MAX(nro_sucursal), 0) + 1
+        FROM sucursales;
+
+        -- Insertar el nuevo registro con el nuevo nro_sucursal único
+        INSERT INTO sucursales
+            (
+            nro_supermercado, nro_sucursal, nom_sucursal, calle, nro_calle,
+            telefonos, coord_latitud, coord_longitud, nro_localidad, habilitada
+            )
+        VALUES
+            (
+                @nro_supermercado, @nuevo_nro_sucursal, @nom_sucursal, @calle, @nro_calle,
+                @telefonos, @coord_latitud, @coord_longitud, @nro_localidad, @habilitada
+        );
+    END
+END;
+
+
+-- DELETE FROM sucursales;
+-- SELECT * FROM sucursales;
+-- EXEC sp_insertar_actualizar_sucursal 1010, 'Sucursal Centro', 'Calle 1', 123, '123456', -34.123456, -58.123456, 1, 1;

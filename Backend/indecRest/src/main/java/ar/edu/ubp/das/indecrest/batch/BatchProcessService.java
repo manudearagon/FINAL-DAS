@@ -56,7 +56,7 @@ public class BatchProcessService {
                                     parseFloat(String.valueOf(sucursal.getCoordLongitud())),
                                     null,
                                     null,
-                                    0,
+                                    sucursal.getNroLocalidad(),
                                     sucursal.isHabilitada()
                             );
                             sucursalesRepository.insertarSucursal(servicio.getNroSupermercado(), sucursalResponse);

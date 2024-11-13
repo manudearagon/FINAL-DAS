@@ -36,7 +36,7 @@ public class BatchProcessService {
                     for (SucursalSupermarketResponse sucursal : sucursalesExternas) {
                         try {
                             sucursalesRepository.insertarSucursal(servicio.getNroSupermercado(), sucursal);
-                            System.out.println("Sucursal {" + sucursal.getNroSucursal() + "} procesada exitosamente");
+                            System.out.println("Sucursal {" + sucursal.getNomSucursal() + "} procesada exitosamente");
                         } catch (Exception e) {
                             System.out.println("Error procesando sucursal {" + sucursal.getNroSucursal() + "}: {" + e.getMessage() + "}");
                         }
@@ -60,7 +60,7 @@ public class BatchProcessService {
                                     sucursal.isHabilitada()
                             );
                             sucursalesRepository.insertarSucursal(servicio.getNroSupermercado(), sucursalResponse);
-                            System.out.println("Sucursal {" + sucursal.getNroSucursal() + "} procesada exitosamente");
+                            System.out.println("Sucursal {" + sucursal.getNomSucursal() + "} procesada exitosamente");
                         } catch (Exception e) {
                             System.out.println("Error procesando sucursal {" + sucursal.getNroSucursal() + "}: {" + e.getMessage() + "}");
                         }
@@ -85,7 +85,7 @@ public class BatchProcessService {
                 .password("pwd_admin")
                 .build();
 
-        List<SucursalSoapBean> sucursales = client.callServiceForList(SucursalSoapBean.class, "ObtenerSucursalesResponse");
+        List<SucursalSoapBean> sucursales = client.callServiceForList(SucursalSoapBean.class, "GetSucursalesResponse");
         return sucursales;
     }
 

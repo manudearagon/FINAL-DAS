@@ -76,7 +76,7 @@ public class BatchProcessService {
 
     private List<SucursalSoapBean> obtenerSucursalesExternasSoap(String url){
         SOAPClient client = new SOAPClient.SOAPClientBuilder()
-                .wsdlUrl("http://localhost:8081/services/supermercados.wsdl")
+                .wsdlUrl(url)
                 .namespace("http://services.supermercadosws.das.ubp.edu.ar/")
                 .serviceName("SupermercadosWSPortService")
                 .portName("SupermercadosWSPortSoap11")

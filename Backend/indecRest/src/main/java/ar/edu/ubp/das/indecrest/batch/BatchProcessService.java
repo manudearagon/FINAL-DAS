@@ -1,5 +1,8 @@
 package ar.edu.ubp.das.indecrest.batch;
 
+import ar.edu.ubp.das.indecrest.batch.constants.SupermarketTypes;
+import ar.edu.ubp.das.indecrest.batch.contracts.ISupermarketProvider;
+import ar.edu.ubp.das.indecrest.batch.factory.SupermarketFactory;
 import ar.edu.ubp.das.indecrest.beans.ServiciosSupermercadoBean;
 import ar.edu.ubp.das.indecrest.beans.SucursalBean;
 import ar.edu.ubp.das.indecrest.beans.responses.SucursalSoapBean;
@@ -30,40 +33,15 @@ public class BatchProcessService {
         List<ServiciosSupermercadoBean> servicios = supermercadosRepository.getServiciosSupermercados();
         try {
             for (ServiciosSupermercadoBean servicio : servicios) {
+                ISupermarketProvider provider = new SupermarketFactory().GetProvider(SupermarketTypes.fromValue(servicio.getTipoServicio()));
                 System.out.println("Servicio: " + servicio.getTipoServicio() + " - " + servicio.getUrlServicio());
-                if (servicio.getTipoServicio().equals("Rest")) {
-                    List<SucursalSupermarketResponse> sucursalesExternas = obtenerSucursalesExternas(servicio.getUrlServicio());
-                    for (SucursalSupermarketResponse sucursal : sucursalesExternas) {
-                        try {
-                            sucursalesRepository.insertarSucursal(servicio.getNroSupermercado(), sucursal);
-                            System.out.println("Sucursal {" + sucursal.getNomSucursal() + "} procesada exitosamente");
-                        } catch (Exception e) {
-                            System.out.println("Error procesando sucursal {" + sucursal.getNroSucursal() + "}: {" + e.getMessage() + "}");
-                        }
-                    }
-                } else if (servicio.getTipoServicio().equals("WS")) {
-                    List<SucursalSoapBean> sucursalesExternas = obtenerSucursalesExternasSoap(servicio.getUrlServicio());
-                    for (SucursalSoapBean sucursal : sucursalesExternas) {
-                        try {
-                            SucursalSupermarketResponse sucursalResponse = new SucursalSupermarketResponse(
-                                    servicio.getNroSupermercado(),
-                                    sucursal.getNroSucursal(),
-                                    sucursal.getNomSucursal(),
-                                    sucursal.getCalle(),
-                                    sucursal.getNroCalle(),
-                                    List.of(sucursal.getTelefonos()),
-                                    parseFloat(String.valueOf(sucursal.getCoordLatitud())),
-                                    parseFloat(String.valueOf(sucursal.getCoordLongitud())),
-                                    null,
-                                    null,
-                                    sucursal.getNroLocalidad(),
-                                    sucursal.isHabilitada()
-                            );
-                            sucursalesRepository.insertarSucursal(servicio.getNroSupermercado(), sucursalResponse);
-                            System.out.println("Sucursal {" + sucursal.getNomSucursal() + "} procesada exitosamente");
-                        } catch (Exception e) {
-                            System.out.println("Error procesando sucursal {" + sucursal.getNroSucursal() + "}: {" + e.getMessage() + "}");
-                        }
+                List<SucursalSupermarketResponse> sucursalesExternas = provider.obtenerSucursales(servicio.getUrlServicio(), servicio.getNroSupermercado());
+                for (SucursalSupermarketResponse sucursal : sucursalesExternas) {
+                    try {
+                        sucursalesRepository.insertarSucursal(servicio.getNroSupermercado(), sucursal);
+                        System.out.println("Sucursal {" + sucursal.getNomSucursal() + "} procesada exitosamente");
+                    } catch (Exception e) {
+                        System.out.println("Error procesando sucursal {" + sucursal.getNroSucursal() + "}: {" + e.getMessage() + "}");
                     }
                 }
             }
@@ -73,28 +51,4 @@ public class BatchProcessService {
         }
     }
 
-
-    private List<SucursalSoapBean> obtenerSucursalesExternasSoap(String url){
-        SOAPClient client = new SOAPClient.SOAPClientBuilder()
-                .wsdlUrl(url)
-                .namespace("http://services.supermercadosws.das.ubp.edu.ar/")
-                .serviceName("SupermercadosWSPortService")
-                .portName("SupermercadosWSPortSoap11")
-                .operationName("GetSucursalesRequest")
-                .username("usr_admin")
-                .password("pwd_admin")
-                .build();
-
-        List<SucursalSoapBean> sucursales = client.callServiceForList(SucursalSoapBean.class, "GetSucursalesResponse");
-        return sucursales;
-    }
-
-    private List<SucursalSupermarketResponse> obtenerSucursalesExternas(String url) {
-
-        List<SucursalSupermarketResponse> response = new Httpful(url)
-                .basicAuth("usr_admin", "pwd_admin")
-                .method(HttpMethod.POST)
-                .execute(new TypeToken<List<SucursalSupermarketResponse>>() {}.getType());
-        return response;
-    }
 }

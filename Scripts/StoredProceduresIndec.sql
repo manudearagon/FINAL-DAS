@@ -261,6 +261,6 @@ BEGIN
 END;
 
 
--- DELETE FROM sucursales;
+-- DELETE FROM sucursales; 
 -- SELECT * FROM sucursales;
 -- EXEC sp_insertar_actualizar_sucursal 1010, 'Sucursal Centro', 'Calle 1', 123, '123456', -34.123456, -58.123456, 1, 1;

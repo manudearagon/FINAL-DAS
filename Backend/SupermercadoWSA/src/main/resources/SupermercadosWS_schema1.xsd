@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://services.supermercadosws.das.ubp.edu.ar/" xmlns:tns="http://services.supermercadosws.das.ubp.edu.ar/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="GetSucursalesRequest" type="tns:GetSucursalesRequest"/>
+
+  <xs:element name="GetSucursalesResponse" type="tns:GetSucursalesResponse"/>
+
+  <xs:element name="GetSupermercadosRequest" type="tns:GetSupermercadosRequest"/>
+
+  <xs:element name="GetSupermercadosResponse" type="tns:GetSupermercadosResponse"/>
+
+  <xs:complexType name="GetSucursalesRequest">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="GetSucursalesResponse">
+    <xs:sequence>
+      <xs:element name="SucursalesResponse" type="tns:sucursalBean" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sucursalBean">
+    <xs:sequence>
+      <xs:element name="calle" type="xs:string" minOccurs="0"/>
+      <xs:element name="coordLatitud" type="xs:double"/>
+      <xs:element name="coordLongitud" type="xs:double"/>
+      <xs:element name="habilitada" type="xs:boolean"/>
+      <xs:element name="nomSucursal" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroCalle" type="xs:int"/>
+      <xs:element name="nroLocalidad" type="xs:int"/>
+      <xs:element name="nroSucursal" type="xs:int"/>
+      <xs:element name="telefonos" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetSupermercadosRequest">
+    <xs:sequence>
+      <xs:element name="cuit" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetSupermercadosResponse">
+    <xs:sequence>
+      <xs:element name="SupermercadosResponse" type="tns:supermercadoBean" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="supermercadoBean">
+    <xs:sequence>
+      <xs:element name="calle" type="xs:string" minOccurs="0"/>
+      <xs:element name="cuit" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroCalle" type="xs:int"/>
+      <xs:element name="razonSocial" type="xs:string" minOccurs="0"/>
+      <xs:element name="telefonos" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

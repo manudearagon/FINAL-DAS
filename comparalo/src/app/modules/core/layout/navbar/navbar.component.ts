@@ -12,6 +12,10 @@ import {
 
 } from '../../models/location.model';
 import { RouterModule } from '@angular/router';
+import { CartModule } from '../../../cart/cart.module';
+import { NzDrawerModule, NzDrawerService } from 'ng-zorro-antd/drawer';
+import { CartDialogComponent } from '../../../cart/dialog/cart-dialog/cart-dialog.component';
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -22,6 +26,8 @@ import { RouterModule } from '@angular/router';
     NzIconModule,
     NzBadgeModule,
     RouterModule,
+    CartModule,
+    NzDrawerModule
   ],
   template: `
     <div class="navbar">
@@ -46,7 +52,7 @@ import { RouterModule } from '@angular/router';
         <span nz-icon nzType="environment"></span>
         {{ location.city }}, {{ location.province }}
       </div>
-      <div class="cart">
+      <div class="cart" (click)="openCart()">
         <nz-badge [nzCount]="0">
           <span nz-icon nzType="shopping-cart" style="font-size: 24px;"></span>
         </nz-badge>
@@ -91,7 +97,8 @@ export class NavbarComponent {
 
   constructor(
     private locationService: LocationService,
-    private productService: ProductService
+    private productService: ProductService,
+    private drawerService: NzDrawerService
   ) {
     this.location$ = this.locationService.getCurrentLocation();
   }
@@ -100,5 +107,14 @@ export class NavbarComponent {
     if (this.searchQuery.trim()) {
       this.productService.searchProducts(this.searchQuery);
     }
+  }
+
+  openCart() {
+    this.drawerService.create({
+      nzTitle: 'Carrito de compras',
+      nzContent: CartDialogComponent,
+      nzPlacement: 'right',
+      nzWidth: 400,
+    });
   }
 }

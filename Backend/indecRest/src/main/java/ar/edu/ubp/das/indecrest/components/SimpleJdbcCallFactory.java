@@ -52,4 +52,5 @@ public class SimpleJdbcCallFactory {
                 .withProcedureName(procedureName)
                 .withSchemaName(schemaName);
     }
+
 }

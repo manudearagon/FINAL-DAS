@@ -1,5 +1,21 @@
--- DROP DATABASE IF EXISTS supermercado_rest_A;
--- CREATE DATABASE supermercado_rest_A;
+-- Borrar todas las tablas en el orden correcto
+-- DROP TABLE IF EXISTS productos_sucursales;
+-- DROP TABLE IF EXISTS tipos_productos_marcas;
+-- DROP TABLE IF EXISTS productos;
+-- DROP TABLE IF EXISTS tipos_productos;
+-- DROP TABLE IF EXISTS marcas_productos;
+-- DROP TABLE IF EXISTS categorias_productos;
+-- DROP TABLE IF EXISTS rubros_productos;
+-- DROP TABLE IF EXISTS tipos_servicios_sucursales;
+-- DROP TABLE IF EXISTS tipos_servicios_supermercado;
+-- DROP TABLE IF EXISTS horarios_sucursales;
+-- DROP TABLE IF EXISTS sucursales;
+-- DROP TABLE IF EXISTS supermercado;
+-- DROP TABLE IF EXISTS empresas_externas;
+-- DROP TABLE IF EXISTS localidades;
+-- DROP TABLE IF EXISTS provincias;
+-- DROP TABLE IF EXISTS paises;
+
 -- Crear tabla 'paises'
 CREATE TABLE paises
 (

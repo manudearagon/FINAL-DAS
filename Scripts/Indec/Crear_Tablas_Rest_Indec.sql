@@ -65,7 +65,8 @@ CREATE TABLE servicios_supermercados
         constraint fk_servicios_supermercados_supermercados references dbo.supermercados,
     url_servicio varchar(255),
     tipo_servicio varchar(50),
-    token_servicio varchar(255),
+    usuario varchar(255),
+    password varchar(255),
     fecha_ult_act_servicio datetime,
     constraint pk_servicios_supermercados primary key(nro_supermercado, url_servicio)
 );

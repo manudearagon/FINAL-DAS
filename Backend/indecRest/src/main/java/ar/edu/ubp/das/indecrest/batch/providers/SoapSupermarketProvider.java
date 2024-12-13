@@ -1,6 +1,8 @@
 package ar.edu.ubp.das.indecrest.batch.providers;
 
 import ar.edu.ubp.das.indecrest.batch.base.BaseSupermarketProvider;
+import ar.edu.ubp.das.indecrest.beans.ProductoSucursalesBean;
+import ar.edu.ubp.das.indecrest.beans.requests.ProductoPorSucursalRequest;
 import ar.edu.ubp.das.indecrest.beans.responses.SucursalSoapBean;
 import ar.edu.ubp.das.indecrest.utils.SOAPClient;
 import ar.edu.ubp.das.indecrest.beans.responses.SucursalSupermarketResponse;
@@ -49,6 +51,40 @@ public class SoapSupermarketProvider extends BaseSupermarketProvider {
                 System.out.println("Sucursal {" + sucursal.getNomSucursal() + "} procesada exitosamente");
             } catch (Exception e) {
                 System.out.println("Error procesando sucursal {" + sucursal.getNroSucursal() + "}: {" + e.getMessage() + "}");
+            }
+        }
+
+        return response;
+    }
+
+    public List<ProductoPorSucursalRequest> obtenerProductos(String url, int nroSupermercado) {
+        SOAPClient client = new SOAPClient.SOAPClientBuilder()
+                .wsdlUrl(url)
+                .namespace("http://services.supermercadosws.das.ubp.edu.ar/")
+                .serviceName("SupermercadosWSPortService")
+                .portName("SupermercadosWSPortSoap11")
+                .operationName("GetProductosRequest")
+                .username("usr_admin")
+                .password("pwd_admin")
+                .build();
+
+        List<ProductoSucursalesBean> productos = client.callServiceForList(ProductoSucursalesBean.class, "GetProductosResponse");
+
+        List<ProductoPorSucursalRequest> response = new ArrayList<>();
+
+        for (ProductoSucursalesBean producto : productos) {
+            try {
+                ProductoPorSucursalRequest productoResponse = new ProductoPorSucursalRequest(
+                        nroSupermercado,
+                        producto.getNro_sucursal(),
+                        producto.getCod_barra(),
+                        producto.getPrecio(),
+                        producto.getVigente()
+                );
+                response.add(productoResponse);
+                System.out.println("Producto {" + producto.getCod_barra() + "} procesado exitosamente");
+            } catch (Exception e) {
+                System.out.println("Error procesando producto {" + producto.getCod_barra() + "}: {" + e.getMessage() + "}");
             }
         }
 

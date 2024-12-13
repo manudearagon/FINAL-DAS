@@ -1,6 +1,7 @@
 package ar.edu.ubp.das.indecrest.repositories;
 import ar.edu.ubp.das.indecrest.beans.SucursalBean;
 import ar.edu.ubp.das.indecrest.beans.SupermercadosConSucursalesBean;
+import ar.edu.ubp.das.indecrest.beans.requests.ProductoPorSucursalRequest;
 import ar.edu.ubp.das.indecrest.beans.responses.SucursalSupermarketResponse;
 import ar.edu.ubp.das.indecrest.beans.responses.SucursalesPorSupermercadoBean;
 import ar.edu.ubp.das.indecrest.components.SimpleJdbcCallFactory;
@@ -87,4 +88,6 @@ public class SucursalesRepository {
                 .addValue("habilitada", sucursal.isHabilitada());
         jdbcCallFactory.execute("sp_insertar_actualizar_sucursal", "dbo", params);
     }
+
+
 }

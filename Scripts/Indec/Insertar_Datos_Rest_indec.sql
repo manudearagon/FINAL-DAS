@@ -31,8 +31,8 @@ values
 insert into provincias
     (cod_pais, cod_provincia, nom_provincia)
 values
-    (1, 1, 'Buenos Aires'),
-    (1, 2, 'Cordoba'),
+    (2, 4, 'Buenos Aires'),
+    (2, 4, 'Cordoba'),
     (1, 3, 'Santa Fe');
 SELECT *
 FROM provincias;
@@ -68,21 +68,40 @@ values
 
 /* -------------------------------------
    tabla: sucursales
+   
    ------------------------------------- */
-/* Sucursales Supermercado Libertad */
+--    SELECT * FROM supermercados
+DELETE FROM sucursales;
+/* Sucursales Supermercado REST A */
 INSERT INTO sucursales
     (nro_supermercado, nro_sucursal, nom_sucursal, calle, nro_calle, telefonos, coord_latitud, coord_longitud, horario_sucursal, servicios_disponibles, nro_localidad, habilitada)
 VALUES
-    (1, 1, 'Libertad Centro', 'Av. General Paz', 350, '0351-4211000, 0351-4211001', -31.416111, -64.183333, 'Lunes a Sabado de 9 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1),
-    (1, 2, 'Libertad Ruta 20', 'Av. Fuerza Aérea Argentina', 1700, '0351-4652000, 0351-4652001', -31.434622, -64.195839, 'Lunes a Sabado de 9 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1),
-    (1, 3, 'Libertad Circunvalación', 'Av. Circunvalación', 5500, '0351-4783000, 0351-4783001', -31.381235, -64.217828, 'Lunes a Sabado de 9 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1);
+    (2, 4, 'Rest A Centro', 'Av. General Paz', 350, '0351-4211000, 0351-4211001', -31.416111, -64.183333, 'Lunes a Sabado de 9 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1),
+    (2, 4, 'Rest A Ruta 20', 'Av. Fuerza Aérea Argentina', 1700, '0351-4652000, 0351-4652001', -31.434622, -64.195839, 'Lunes a Sabado de 9 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1),
+    (1, 3, 'Rest A Circunvalación', 'Av. Circunvalación', 5500, '0351-4783000, 0351-4783001', -31.381235, -64.217828, 'Lunes a Sabado de 9 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1);
 
-/* Sucursales Supermercado Disco */
+/* Sucursales Supermercado REST B */
 INSERT INTO sucursales
     (nro_supermercado, nro_sucursal, nom_sucursal, calle, nro_calle, telefonos, coord_latitud, coord_longitud, horario_sucursal, servicios_disponibles, nro_localidad, habilitada)
 VALUES
-    (2, 1, 'Disco Cerro', 'Av. Rafael Núñez', '4630', '0810-777-8888, 0351-4211001', -31.416111, -64.183333, 'Lunes a Sabado de 8 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1),
-    (2, 2, 'Disco Villa Cabrera', 'Jose Antonio de Goyechea', '2851', '0351-4487566, 0351-4879400', -31.434622, -64.195839, 'Lunes a Sabado de 8 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1);
+    (2, 4, 'Rest B Cofico', 'Av. General Paz', 350, '0351-4211000, 0351-4211001', -31.416111, -64.183333, 'Lunes a Sabado de 9 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1),
+    (2, 5, 'Rest B Valparaiso', 'Av. Valparaiso', 1700, '0351-4652000, 0351-4652001', -31.434622, -64.195839, 'Lunes a Sabado de 9 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1),
+    (2, 6, 'Rest B Alberdi', 'Av. Circunvalación', 5500, '0351-4783000, 0351-4783001', -31.381235, -64.217828, 'Lunes a Sabado de 9 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1);
+
+/* Sucursales WS A */
+INSERT INTO sucursales
+    (nro_supermercado, nro_sucursal, nom_sucursal, calle, nro_calle, telefonos, coord_latitud, coord_longitud, horario_sucursal, servicios_disponibles, nro_localidad, habilitada)
+VALUES
+    (3, 7, 'SOAP A Cerro', 'Av. Rafael Núñez', '4630', '0810-777-8888, 0351-4211001', -31.416111, -64.183333, 'Lunes a Sabado de 8 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1),
+    (3, 8, 'SOAP B Cabrera', 'Jose Antonio de Goyechea', '2851', '0351-4487566, 0351-4879400', -31.434622, -64.195839, 'Lunes a Sabado de 8 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1);
+
+/* Sucursales Supermercado WS B */
+INSERT INTO sucursales
+    (nro_supermercado, nro_sucursal, nom_sucursal, calle, nro_calle, telefonos, coord_latitud, coord_longitud, horario_sucursal, servicios_disponibles, nro_localidad, habilitada)
+VALUES
+    (4, 9, 'SOAP C Cerro', 'Av. Rafael Núñez', '4630', '0810-777-8888, 0351-4211001', -31.416111, -64.183333, 'Lunes a Sabado de 8 a 21 y Domingos de 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1),
+    (4, 10, 'SOAP D Cabrera', 'Jose Antonio de Goyechea', '2851', '0351-4487566, 0351-4879400', -31.434622, -64.195839, 'Lunes a Sabado de 8 a 21 y Doming 10 a 18', 'Atención al cliente, Cajeros automáticos, Compra en línea, Devoluciones, Entrega a domicilio, Estacionamiento gratuito, Recogida en tienda', 5, 1);
+
 
 /* -------------------------------------
    tabla: servicios_supermercados
@@ -982,7 +1001,7 @@ insert into tipos_productos_marcas
     (nro_marca, nro_tipo_producto, vigente)
 values
     -- Marcas de Bebidas (Tipo 1)
-    (1, 1, 1),
+    (2, 4, 1),
     -- Coca-Cola
     (2, 1, 1),
     -- Pepsi
@@ -1020,7 +1039,7 @@ values
     -- Marcas de Almac�n (Tipo 2)
     (20, 2, 1),
     -- Marolio
-    (21, 2, 1),
+    (22, 4, 1),
     -- Molinos R�o de la Plata
     (22, 2, 1),
     -- Knorr
@@ -1040,7 +1059,7 @@ values
     -- Natura
     (50, 2, 1),
     -- Ledesma
-    (51, 2, 1),
+    (52, 4, 1),
     -- Molinos Ala
     (52, 2, 1),
     -- Nescaf�
@@ -1177,43 +1196,37 @@ values
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('7791234560011', 'Coca-Cola Original 500ml', 'Bebida gaseosa sabor cola 500ml', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\coca500.jpg', SINGLE_BLOB) AS imagen), 1, (SELECT nro_tipo_producto
+    -- ('7791234560011', 'Coca-Cola Original 500ml', 'Bebida gaseosa sabor cola 500ml', null, 1, (SELECT nro_tipo_producto
+    --     FROM tipos_productos
+    --     WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
+    --     FROM categorias_productos
+    --     WHERE nom_categoria = 'Cola'), 1),
+    -- Bebidas > Gaseosas > Cola
+    ('7791234560028', 'Pepsi 500ml', 'Bebida gaseosa sabor cola 500ml', null, 2, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Cola'), 1),
     -- Bebidas > Gaseosas > Cola
-    ('7791234560028', 'Pepsi 500ml', 'Bebida gaseosa sabor cola 500ml', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\pepsi500.jpeg', SINGLE_BLOB) AS imagen), 2, (SELECT nro_tipo_producto
-        FROM tipos_productos
-        WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
-        FROM categorias_productos
-        WHERE nom_categoria = 'Cola'), 1),
-    -- Bebidas > Gaseosas > Cola
-    ('7791234560035', 'Fanta Naranja 500ml', 'Bebida gaseosa sabor naranja 500ml', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\fanta500.jpg', SINGLE_BLOB) AS imagen), 4, (SELECT nro_tipo_producto
+    ('7791234560035', 'Fanta Naranja 500ml', 'Bebida gaseosa sabor naranja 500ml', null, 4, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Naranja'), 1),
     -- Bebidas > Gaseosas > Naranja
-    ('7791234560042', 'Schweppes Pomelo 500ml', 'Bebida gaseosa sabor pomelo 500ml', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\schweppes.jpeg', SINGLE_BLOB) AS imagen), 5, (SELECT nro_tipo_producto
+    ('7791234560042', 'Schweppes Pomelo 500ml', 'Bebida gaseosa sabor pomelo 500ml', null, 5, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Pomelo'), 1),
     -- Bebidas > Gaseosas > Pomelo
-    ('7791234560059', 'Sprite Limon 500ml', 'Bebida gaseosa sabor limon 500ml', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\sprite500.jpg', SINGLE_BLOB) AS imagen), 3, (SELECT nro_tipo_producto
+    ('7791234560059', 'Sprite Limon 500ml', 'Bebida gaseosa sabor limon 500ml', null , 3, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Limón'), 1),
     -- Bebidas > Gaseosas > Limon
-    ('7791234560066', 'Schweppes Tonica 500ml', 'Bebida gaseosa sabor tonica 500ml', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\schweppesTon.jpeg', SINGLE_BLOB) AS imagen), 5, (SELECT nro_tipo_producto
+    ('7791234560066', 'Schweppes Tonica 500ml', 'Bebida gaseosa sabor tonica 500ml', null, 5, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1224,29 +1237,25 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('7791234560073', 'Cepita Naranja 1L', 'Jugo de naranja listo para tomar', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\cepitaNaranja.jpeg', SINGLE_BLOB) AS imagen), 9, (SELECT nro_tipo_producto
+    ('7791234560073', 'Cepita Naranja 1L', 'Jugo de naranja listo para tomar', null, 9, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Listos para tomar'), 1),
     -- Bebidas > Jugos > Listos para tomar
-    ('7791234560080', 'Baggio Multifruta 1L', 'Jugo de multifruta listo para tomar 1L', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\baggioMultif.png', SINGLE_BLOB) AS imagen), 10, (SELECT nro_tipo_producto
+    ('7791234560080', 'Baggio Multifruta 1L', 'Jugo de multifruta listo para tomar 1L', null , 10, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Listos para tomar'), 1),
     -- Bebidas > Jugos > Listos para tomar
-    ('7791234560097', 'Baggio Durazno 1L', 'Jugo de durazno listo para tomar 1L', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\baggioDuraz.jpg', SINGLE_BLOB) AS imagen), 10, (SELECT nro_tipo_producto
+    ('7791234560097', 'Baggio Durazno 1L', 'Jugo de durazno listo para tomar 1L', null, 10, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Listos para tomar'), 1),
     -- Bebidas > Jugos > Listos para tomar
-    ('7791234560103', 'Cepita Multifruta 1L', 'Jugo concentrado de multifruta 1L', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\cepitalMultf.jpg', SINGLE_BLOB) AS imagen), 9, (SELECT nro_tipo_producto
+    ('7791234560103', 'Cepita Multifruta 1L', 'Jugo concentrado de multifruta 1L', null, 9, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1257,36 +1266,31 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto,imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('7791234560110', 'Villa del Sur con Gas 500ml', 'Agua mineral con gas 500ml', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\villaSurGas.jpg', SINGLE_BLOB) AS imagen), 6, (SELECT nro_tipo_producto
+    ('7791234560110', 'Villa del Sur con Gas 500ml', 'Agua mineral con gas 500ml', null, 6, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Agua con gas'), 1),
     -- Bebidas > Aguas > Agua con gas
-    ('7791234560127', 'Eco de los Andes sin Gas 1L', 'Agua mineral sin gas 1L', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\ecoAndesSinGas.jpg', SINGLE_BLOB) AS imagen), 8, (SELECT nro_tipo_producto
+    ('7791234560127', 'Eco de los Andes sin Gas 1L', 'Agua mineral sin gas 1L', null, 8, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Agua sin gas'), 1),
     -- Bebidas > Aguas > Agua sin gas
-    ('7791234560134', 'Bon Aqua Pomelo saborizada 1L', 'Agua saborizada con sabor a pomelo 1L', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\bonPomelo.jpeg', SINGLE_BLOB) AS imagen), 7, (SELECT nro_tipo_producto
+    ('7791234560134', 'Bon Aqua Pomelo saborizada 1L', 'Agua saborizada con sabor a pomelo 1L', null, 7, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Agua saborizada'), 1),
     -- Bebidas > Aguas > Agua saborizada
-    ('7791234560141', 'Bon Aqua Pera saborizada 1L', 'Agua saborizada con sabor a pera 1L', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\bonPera.jpg', SINGLE_BLOB) AS imagen), 7, (SELECT nro_tipo_producto
+    ('7791234560141', 'Bon Aqua Pera saborizada 1L', 'Agua saborizada con sabor a pera 1L', null , 7, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Agua saborizada'), 1),
     -- Bebidas > Aguas > Agua saborizada
-    ('7791234560158', 'Bon Aqua Manzana saborizada 1L', 'Agua saborizada con sabor a manzana 1L', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\bonManzana.jpg', SINGLE_BLOB) AS imagen), 7, (SELECT nro_tipo_producto
+    ('7791234560158', 'Bon Aqua Manzana saborizada 1L', 'Agua saborizada con sabor a manzana 1L', null, 7, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1297,8 +1301,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000004', 'Cerveza Quilmes 1L', 'Cerveza Roja', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\quilmesRoja.jpg', SINGLE_BLOB) AS imagen), 67, (SELECT nro_tipo_producto
+    ('000000000004', 'Cerveza Quilmes 1L', 'Cerveza Roja', null, 67, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Bebidas'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1311,8 +1314,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000005', 'Aceite de Oliva', 'Aceite de oliva extra virgen', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\oliva.png', SINGLE_BLOB) AS imagen), 21, (SELECT nro_tipo_producto
+    ('000000000005', 'Aceite de Oliva', 'Aceite de oliva extra virgen', null, 21, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1323,8 +1325,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000006', 'Aceitunas Verdes', 'Aceitunas verdes en salmuera', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\aceitunas.png', SINGLE_BLOB) AS imagen), 28, (SELECT nro_tipo_producto
+    ('000000000006', 'Aceitunas Verdes', 'Aceitunas verdes en salmuera', null, 28, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1335,29 +1336,25 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto,desc_producto,imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('7791234560165', 'Hellmanns Mayonesa 500g', 'Mayonesa clásica de 500g', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\hellmannMayo.jpg', SINGLE_BLOB) AS imagen), 24, (SELECT nro_tipo_producto
+    ('7791234560165', 'Hellmanns Mayonesa 500g', 'Mayonesa clásica de 500g', null, 24, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Mayonesas'), 1),
     -- Almacen > Aderezos > Mayonesas
-    ('7791234560172', 'Danica Ketchup 300g', 'Kétchup de 300g', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\danicaKetch.jpg', SINGLE_BLOB) AS imagen), 25, (SELECT nro_tipo_producto
+    ('7791234560172', 'Danica Ketchup 300g', 'Kétchup de 300g', null, 25, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Ketchup'), 1),
     -- Almacen > Aderezos > Ketchup
-    ('7791234560189', 'Mostaza Natura 250g', 'Mostaza de 250g', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\mostazaNatura.jpeg', SINGLE_BLOB) AS imagen), 29, (SELECT nro_tipo_producto
+    ('7791234560189', 'Mostaza Natura 250g', 'Mostaza de 250g', null, 29, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Mostazas'), 1),
     -- Almacen > Aderezos > Mostazas
-    ('7791234560196', 'Salsa Golf Hellmanns 350g', 'Salsa golf de 350g', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\hellmanSalsaGol.jpeg', SINGLE_BLOB) AS imagen), 24, (SELECT nro_tipo_producto
+    ('7791234560196', 'Salsa Golf Hellmanns 350g', 'Salsa golf de 350g', null, 24, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1368,8 +1365,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto,desc_producto,imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000008', 'Arroz', 'Arroz largo No se pasa', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\arrozMarolio.png', SINGLE_BLOB) AS imagen), 20, (SELECT nro_tipo_producto
+    ('000000000008', 'Arroz', 'Arroz largo No se pasa', null, 20, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1380,8 +1376,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto,desc_producto,imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000009', 'Caldo de Pollo', 'Caldo de pollo en cubos', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\caldo.jpeg', SINGLE_BLOB) AS imagen), 22, (SELECT nro_tipo_producto
+    ('000000000009', 'Caldo de Pollo', 'Caldo de pollo en cubos', null, 22, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1392,36 +1387,31 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('7791234560202', 'La Virginia Cafe Molido 500g', 'Café molido de 500g', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\laVirginiaCafe.jpeg', SINGLE_BLOB) AS imagen), 53, (SELECT nro_tipo_producto
+    ('7791234560202', 'La Virginia Cafe Molido 500g', 'Café molido de 500g', null, 53, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Cafes'), 1),
     -- Almacen > Desayuno y merienda > Cafes
-    ('7791234560219', 'Recetas de la Abuela 200g', 'Galletitas dulces de 200g', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\recetasAguelaGall.jpeg', SINGLE_BLOB) AS imagen), 17, (SELECT nro_tipo_producto
+    ('7791234560219', 'Recetas de la Abuela 200g', 'Galletitas dulces de 200g', null, 17, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Galletitas dulces'), 1),
     -- Almacen > Desayuno y merienda > Galletitas dulces
-    ('7791234560226', 'Bagley Galletitas Saladas 150g', 'Galletitas saladas de 150g', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\bagleySaladas.jpeg', SINGLE_BLOB) AS imagen), 18, (SELECT nro_tipo_producto
+    ('7791234560226', 'Bagley Galletitas Saladas 150g', 'Galletitas saladas de 150g', null, 18, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Galletitas saladas'), 1),
     -- Almacen > Desayuno y merienda > Galletitas saladas
-    ('7791234560233', 'Sancor Leche en Polvo 400g', 'Leche en polvo de 400g', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\sancorPolvo.jpg', SINGLE_BLOB) AS imagen), 12, (SELECT nro_tipo_producto
+    ('7791234560233', 'Sancor Leche en Polvo 400g', 'Leche en polvo de 400g', null, 12, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Leches en polvo'), 1),
     -- Almacen > Desayuno y merienda > Leches en polvo
-    ('7791234560240', 'Taragui Yerba Mate 1Kg', 'Yerba mate de 1Kg', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\taraguiiYerba.jpg', SINGLE_BLOB) AS imagen), 55, (SELECT nro_tipo_producto
+    ('7791234560240', 'Taragui Yerba Mate 1Kg', 'Yerba mate de 1Kg', null, 55, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1432,8 +1422,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000011', 'Chocolate con Leche', 'Chocolate con leche y nueces', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\nestleChoc.png', SINGLE_BLOB) AS imagen), 90, (SELECT nro_tipo_producto
+    ('000000000011', 'Chocolate con Leche', 'Chocolate con leche y nueces', null, 90, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1444,8 +1433,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000012', 'Polenta', 'Polenta de harina de maiz', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\polenta.jpg', SINGLE_BLOB) AS imagen), 17, (SELECT nro_tipo_producto
+    ('000000000012', 'Polenta', 'Polenta de harina de maiz', null, 17, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1456,8 +1444,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000013', 'Pan Lactal', 'Pan de molde Artesano 500gr', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\panLactal.png', SINGLE_BLOB) AS imagen), 33, (SELECT nro_tipo_producto
+    ('000000000013', 'Pan Lactal', 'Pan de molde Artesano 500gr', null, 33, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1468,8 +1455,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000014', 'Preparado para Tortas', 'Mezcla para tortas de vainilla', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\torta.png', SINGLE_BLOB) AS imagen), 17, (SELECT nro_tipo_producto
+    ('000000000014', 'Preparado para Tortas', 'Mezcla para tortas de vainilla', null, 17, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1480,8 +1466,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000015', 'Fideos Espagueti', 'Fideos tipo espagueti largos', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\fideosKnorr.png', SINGLE_BLOB) AS imagen), 22, (SELECT nro_tipo_producto
+    ('000000000015', 'Fideos Espagueti', 'Fideos tipo espagueti largos', null, 22, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1492,8 +1477,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000016', 'Sal Fina', 'Sal fina para cocinar', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\salMarolio.png', SINGLE_BLOB) AS imagen), 20, (SELECT nro_tipo_producto
+    ('000000000016', 'Sal Fina', 'Sal fina para cocinar', null, 20, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1504,8 +1488,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000017', 'Nachos ', 'Nachos crujientes', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\nachos.png', SINGLE_BLOB) AS imagen), 34, (SELECT nro_tipo_producto
+    ('000000000017', 'Nachos ', 'Nachos crujientes', null, 34, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Almacen'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1518,8 +1501,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000018', 'Dulce de Leche', 'Dulce de leche repostero', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\dulceLecheRep.jpeg', SINGLE_BLOB) AS imagen), 11, (SELECT nro_tipo_producto
+    ('000000000018', 'Dulce de Leche', 'Dulce de leche repostero', null, 11, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Lacteos'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1530,8 +1512,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000019', 'Leche Larga vida', 'Leche entera pasteurizada 1L', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\leche.png', SINGLE_BLOB) AS imagen), 11, (SELECT nro_tipo_producto
+    ('000000000019', 'Leche Larga vida', 'Leche entera pasteurizada 1L', null, 11, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Lacteos'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1542,8 +1523,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000020', 'Crema de Leche', 'Crema de leche batida frescas', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\cremaSancor.png', SINGLE_BLOB) AS imagen), 12, (SELECT nro_tipo_producto
+    ('000000000020', 'Crema de Leche', 'Crema de leche batida frescas', null, 12, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Lacteos'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1554,8 +1534,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000021', 'Yogur Natural', 'Yogur natural firme', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\yogurtActivia.jpeg', SINGLE_BLOB) AS imagen), 39, (SELECT nro_tipo_producto
+    ('000000000021', 'Yogur Natural', 'Yogur natural firme', null, 39, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Lacteos'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1566,8 +1545,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000022', 'Manteca', 'Manteca sin sal 200gr', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\manteca.png', SINGLE_BLOB) AS imagen), 11, (SELECT nro_tipo_producto
+    ('000000000022', 'Manteca', 'Manteca sin sal 200gr', null, 11, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Lacteos'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1580,8 +1558,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000023', 'Queso Finlandia Clasico', 'Queso para untar sabor original 300gr', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\finlandia.png', SINGLE_BLOB) AS imagen), 11, (SELECT nro_tipo_producto
+    ('000000000023', 'Queso Finlandia Clasico', 'Queso para untar sabor original 300gr', null, 11, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Quesos y Fiambres'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1592,8 +1569,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000024', 'Jamón Cocido', 'Jamón cocido en rodajas Paladini', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\jamonPala.png', SINGLE_BLOB) AS imagen), 31, (SELECT nro_tipo_producto
+    ('000000000024', 'Jamón Cocido', 'Jamón cocido en rodajas Paladini', null, 31, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Quesos y Fiambres'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1606,8 +1582,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000025', 'Carne de Res', 'Carne de res cortada para asar', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\carneRes.jpg', SINGLE_BLOB) AS imagen), 42, (SELECT nro_tipo_producto
+    ('000000000025', 'Carne de Res', 'Carne de res cortada para asar', null, 42, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Carnes'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1618,8 +1593,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000026', 'Carne de Cerdo', 'Panceta de cerdo', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\carneCerdo.png', SINGLE_BLOB) AS imagen), 41, (SELECT nro_tipo_producto
+    ('000000000026', 'Carne de Cerdo', 'Panceta de cerdo', null, 41, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Carnes'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1630,8 +1604,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000027', 'Pollo Entero', 'Pollo fresco entero', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\pollo.png', SINGLE_BLOB) AS imagen), 41, (SELECT nro_tipo_producto
+    ('000000000027', 'Pollo Entero', 'Pollo fresco entero', null, 41, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Carnes'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1642,8 +1615,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000028', 'Filete de Merluza', 'Merluza fresca', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\pescadoMeda.png', SINGLE_BLOB) AS imagen), 43, (SELECT nro_tipo_producto
+    ('000000000028', 'Filete de Merluza', 'Merluza fresca', null, 43, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Carnes'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1656,8 +1628,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000029', 'Manzanas', 'Manzanas empaquetadas', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\manzana.png', SINGLE_BLOB) AS imagen), 30, (SELECT nro_tipo_producto
+    ('000000000029', 'Manzanas', 'Manzanas empaquetadas', null, 30, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Frutas y Verduras'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1668,8 +1639,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000030', 'Verduras', 'Ensaladas listas', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\ensalada.png', SINGLE_BLOB) AS imagen), 30, (SELECT nro_tipo_producto
+    ('000000000030', 'Verduras', 'Ensaladas listas', null, 30, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Frutas y Verduras'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1680,8 +1650,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000031', 'Huevos', 'Docena de huevos blancos', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\huevos.png', SINGLE_BLOB) AS imagen), 30, (SELECT nro_tipo_producto
+    ('000000000031', 'Huevos', 'Docena de huevos blancos', null, 30, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Frutas y Verduras'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1694,8 +1663,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000032', 'Frutillas Congeladas', 'Frutillas frescas congeladas', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\frutillas.png', SINGLE_BLOB) AS imagen), 43, (SELECT nro_tipo_producto
+    ('000000000032', 'Frutillas Congeladas', 'Frutillas frescas congeladas', null, 43, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Congelados'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1706,8 +1674,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000033', 'Verduras Mixtas Congeladas', 'Mezcla de verduras congeladas', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\verdurasCong.png', SINGLE_BLOB) AS imagen), 43, (SELECT nro_tipo_producto
+    ('000000000033', 'Verduras Mixtas Congeladas', 'Mezcla de verduras congeladas', null, 43, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Congelados'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1718,8 +1685,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000034', 'Papas Fritas', 'Papas fritas congeladas', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\papasFritas.png', SINGLE_BLOB) AS imagen), 43, (SELECT nro_tipo_producto
+    ('000000000034', 'Papas Fritas', 'Papas fritas congeladas', null, 43, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Congelados'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1730,8 +1696,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000035', 'Helado de Chocolate', 'Helado de chocolate Tentacion 1L', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\heladoChoco.png', SINGLE_BLOB) AS imagen), 65, (SELECT nro_tipo_producto
+    ('000000000035', 'Helado de Chocolate', 'Helado de chocolate Tentacion 1L', null, 65, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Congelados'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1742,8 +1707,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000036', 'Asado de Tira', 'Corte de asado de tira', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\asado.png', SINGLE_BLOB) AS imagen), 42, (SELECT nro_tipo_producto
+    ('000000000036', 'Asado de Tira', 'Corte de asado de tira', null, 42, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Congelados'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1754,8 +1718,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000037', 'Hamburguesa de Carne', 'Hamburguesa de carne vacuna', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\hamburguesaSwift.png', SINGLE_BLOB) AS imagen), 42, (SELECT nro_tipo_producto
+    ('000000000037', 'Hamburguesa de Carne', 'Hamburguesa de carne vacuna', null, 42, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Congelados'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1768,8 +1731,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000038', 'Shampoo', 'Shampoo para cabello seco Detox Pantene', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\shampoo.png', SINGLE_BLOB) AS imagen), 49, (SELECT nro_tipo_producto
+    ('000000000038', 'Shampoo', 'Shampoo para cabello seco Detox Pantene', null, 49, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Perfumeria'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1780,8 +1742,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000039', 'Pasta Dental', 'Pasta dental blanqueadora', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\pastaDientes.png', SINGLE_BLOB) AS imagen), 48, (SELECT nro_tipo_producto
+    ('000000000039', 'Pasta Dental', 'Pasta dental blanqueadora', null, 48, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Perfumeria'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1792,8 +1753,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000040', 'Desodorante Mujer', 'Desodorante en spray Original', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\desodorante.png', SINGLE_BLOB) AS imagen), 46, (SELECT nro_tipo_producto
+    ('000000000040', 'Desodorante Mujer', 'Desodorante en spray Original', null, 46, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Perfumeria'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1804,8 +1764,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000041', 'Crema Hidratante', 'Crema hidratante para la piel', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\cremaDove.png', SINGLE_BLOB) AS imagen), 46, (SELECT nro_tipo_producto
+    ('000000000041', 'Crema Hidratante', 'Crema hidratante para la piel', null, 46, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Perfumeria'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1816,8 +1775,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000042', 'Toallas Higiénicas', 'Toallas higiénicas ultra finas', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\toallitas.png', SINGLE_BLOB) AS imagen), 46, (SELECT nro_tipo_producto
+    ('000000000042', 'Toallas Higiénicas', 'Toallas higiénicas ultra finas', null, 46, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Perfumeria'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1828,8 +1786,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000043', 'Protección para Adultos', 'Protección para adultos desechables', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\panales.png', SINGLE_BLOB) AS imagen), 46, (SELECT nro_tipo_producto
+    ('000000000043', 'Protección para Adultos', 'Protección para adultos desechables', null, 46, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Perfumeria'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1842,8 +1799,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000044', 'Esponjas', 'Esponjas para limpieza verdes', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\esponja.png', SINGLE_BLOB) AS imagen), 100, (SELECT nro_tipo_producto
+    ('000000000044', 'Esponjas', 'Esponjas para limpieza verdes', null, 100, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Limpieza'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1854,8 +1810,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000045', 'Detergente Líquido', 'Detergente líquido para ropa 3L', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\detergenteAla.png', SINGLE_BLOB) AS imagen), 99, (SELECT nro_tipo_producto
+    ('000000000045', 'Detergente Líquido', 'Detergente líquido para ropa 3L', null, 99, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Limpieza'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1866,8 +1821,7 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto, imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('000000000046', 'Desinfectante', 'Desinfectante de cocina', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\desinfectante.png', SINGLE_BLOB) AS imagen), 101, (SELECT nro_tipo_producto
+    ('000000000046', 'Desinfectante', 'Desinfectante de cocina', null, 101, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Limpieza'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1878,15 +1832,13 @@ VALUES
 INSERT INTO productos
     (cod_barra, nom_producto, desc_producto,imagen, nro_marca, nro_tipo_producto, nro_categoria, vigente)
 VALUES
-    ('7791234560257', 'Rollo de cocina', 'Rollo de papel absorbente para cocina', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\rolloCocina.png', SINGLE_BLOB) AS imagen), 102, (SELECT nro_tipo_producto
+    ('7791234560257', 'Rollo de cocina', 'Rollo de papel absorbente para cocina', null, 102, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Limpieza'), (SELECT nro_categoria
         FROM categorias_productos
         WHERE nom_categoria = 'Rollos de cocina'), 1),
     -- Limpieza > Papel > Rollos de cocina
-    ('7791234560264', 'Papel Higienico', 'Papel higiénico suave y absorbente', (SELECT *
-        FROM OPENROWSET(BULK N'C:\imProductos\papelHigienico.jpg', SINGLE_BLOB) AS imagen), 103, (SELECT nro_tipo_producto
+    ('7791234560264', 'Papel Higienico', 'Papel higiénico suave y absorbente', null, 103, (SELECT nro_tipo_producto
         FROM tipos_productos
         WHERE nom_tipo_producto = 'Limpieza'), (SELECT nro_categoria
         FROM categorias_productos
@@ -1898,274 +1850,275 @@ VALUES
    tabla: productos_supermercados
    ------------------------------------- */
 /* Productos Supermercado Libertad */
+DROP TABLE IF EXISTS productos_supermercados;
 -- SUCURSAL 1
 INSERT INTO productos_supermercados
     (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
 VALUES
-    (1, 1, '7791234560011', 120.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560011', 120.00, '2024-09-01 10:00:00'),
     -- Coca-Cola Original 500ml
-    (1, 1, '7791234560028', 115.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560028', 115.00, '2024-09-01 10:00:00'),
     -- Pepsi 500ml
-    (1, 1, '7791234560035', 110.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560035', 110.00, '2024-09-01 10:00:00'),
     -- Fanta Naranja 500ml
-    (1, 1, '7791234560042', 130.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560042', 130.00, '2024-09-01 10:00:00'),
     -- Schweppes Pomelo 500ml
-    (1, 1, '7791234560059', 120.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560059', 120.00, '2024-09-01 10:00:00'),
     -- Sprite Limon 500ml
-    (1, 1, '7791234560066', 135.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560066', 135.00, '2024-09-01 10:00:00'),
     -- Schweppes Tonica 500ml
-    (1, 1, '7791234560073', 150.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560073', 150.00, '2024-09-01 10:00:00'),
     -- Cepita Naranja 1L
-    (1, 1, '7791234560080', 155.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560080', 155.00, '2024-09-01 10:00:00'),
     -- Baggio Multifruta 1L
-    (1, 1, '7791234560097', 160.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560097', 160.00, '2024-09-01 10:00:00'),
     -- Baggio Durazno 1L
-    (1, 1, '7791234560103', 165.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560103', 165.00, '2024-09-01 10:00:00'),
     -- Cepita Multifruta 1L
-    (1, 1, '7791234560110', 170.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560110', 170.00, '2024-09-01 10:00:00'),
     -- Villa del Sur con Gas 500ml
-    (1, 1, '7791234560127', 175.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560127', 175.00, '2024-09-01 10:00:00'),
     -- Eco de los Andes sin Gas 1L
-    (1, 1, '7791234560134', 180.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560134', 180.00, '2024-09-01 10:00:00'),
     -- Bon Aqua Pomelo saborizada 1L
-    (1, 1, '7791234560141', 185.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560141', 185.00, '2024-09-01 10:00:00'),
     -- Bon Aqua Pera saborizada 1L
-    (1, 1, '7791234560158', 190.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560158', 190.00, '2024-09-01 10:00:00'),
     -- Bon Aqua Manzana saborizada 1L
-    (1, 1, '000000000004', 110.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000004', 110.00, '2024-09-01 10:00:00'),
     -- Cerveza Quilmes 1L
-    (1, 1, '000000000005', 200.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000005', 200.00, '2024-09-01 10:00:00'),
     -- Aceite de Oliva
-    (1, 1, '000000000006', 90.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000006', 90.00, '2024-09-01 10:00:00'),
     -- Aceitunas Verdes
-    (1, 1, '7791234560165', 100.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560165', 100.00, '2024-09-01 10:00:00'),
     -- Hellmanns Mayonesa 500g
-    (1, 1, '7791234560172', 105.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560172', 105.00, '2024-09-01 10:00:00'),
     -- Danica Ketchup 300g
-    (1, 1, '7791234560189', 110.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560189', 110.00, '2024-09-01 10:00:00'),
     -- Mostaza Natura 250g
-    (1, 1, '7791234560196', 115.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560196', 115.00, '2024-09-01 10:00:00'),
     -- Salsa Golf Hellmanns 350g
-    (1, 1, '000000000008', 130.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000008', 130.00, '2024-09-01 10:00:00'),
     -- Arroz largo No se pasa
-    (1, 1, '000000000009', 85.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000009', 85.00, '2024-09-01 10:00:00'),
     -- Caldo de Pollo
-    (1, 1, '7791234560202', 145.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560202', 145.00, '2024-09-01 10:00:00'),
     -- La Virginia Cafe Molido 500g
-    (1, 1, '7791234560219', 150.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560219', 150.00, '2024-09-01 10:00:00'),
     -- Recetas de la Abuela 200g
-    (1, 1, '7791234560226', 155.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560226', 155.00, '2024-09-01 10:00:00'),
     -- Bagley Galletitas Saladas 150g
-    (1, 1, '7791234560233', 160.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560233', 160.00, '2024-09-01 10:00:00'),
     -- Sancor Leche en Polvo 400g
-    (1, 1, '7791234560240', 165.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560240', 165.00, '2024-09-01 10:00:00'),
     -- Taragui Yerba Mate 1Kg
-    (1, 1, '000000000011', 70.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000011', 70.00, '2024-09-01 10:00:00'),
     -- Chocolate con Leche
-    (1, 1, '000000000012', 75.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000012', 75.00, '2024-09-01 10:00:00'),
     -- Polenta
-    (1, 1, '000000000013', 80.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000013', 80.00, '2024-09-01 10:00:00'),
     -- Pan Lactal
-    (1, 1, '000000000014', 85.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000014', 85.00, '2024-09-01 10:00:00'),
     -- Preparado para Tortas
-    (1, 1, '000000000015', 90.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000015', 90.00, '2024-09-01 10:00:00'),
     -- Fideos Espagueti
-    (1, 1, '000000000016', 95.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000016', 95.00, '2024-09-01 10:00:00'),
     -- Sal Fina
-    (1, 1, '000000000017', 100.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000017', 100.00, '2024-09-01 10:00:00'),
     -- Nachos
-    (1, 1, '000000000018', 105.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000018', 105.00, '2024-09-01 10:00:00'),
     -- Dulce de Leche
-    (1, 1, '000000000019', 120.50, '2024-10-06'),
+    (2, 4, '000000000019', 120.50, '2024-10-06'),
     -- Leche Larga Vida
-    (1, 1, '000000000020', 200.75, '2024-10-06'),
+    (2, 4, '000000000020', 200.75, '2024-10-06'),
     -- Crema de Leche
-    (1, 1, '000000000021', 85.90, '2024-10-06'),
+    (2, 4, '000000000021', 85.90, '2024-10-06'),
     -- Yogur Natural
-    (1, 1, '000000000022', 250.00, '2024-10-06'),
+    (2, 4, '000000000022', 250.00, '2024-10-06'),
     -- Manteca
-    (1, 1, '000000000023', 350.50, '2024-10-06'),
+    (2, 4, '000000000023', 350.50, '2024-10-06'),
     -- Queso Finlandia Clasico
-    (1, 1, '000000000024', 450.75, '2024-10-06'),
+    (2, 4, '000000000024', 450.75, '2024-10-06'),
     -- Jamón Cocido
-    (1, 1, '000000000025', 1200.00, '2024-10-06'),
+    (2, 4, '000000000025', 1200.00, '2024-10-06'),
     -- Carne de Res
-    (1, 1, '000000000026', 850.50, '2024-10-06'),
+    (2, 4, '000000000026', 850.50, '2024-10-06'),
     -- Carne de Cerdo
-    (1, 1, '000000000027', 720.25, '2024-10-06'),
+    (2, 4, '000000000027', 720.25, '2024-10-06'),
     -- Pollo Entero
-    (1, 1, '000000000028', 650.00, '2024-10-06'),
+    (2, 4, '000000000028', 650.00, '2024-10-06'),
     -- Filete de Merluza
-    (1, 1, '000000000029', 180.90, '2024-10-06'),
+    (2, 4, '000000000029', 180.90, '2024-10-06'),
     -- Manzanas
-    (1, 1, '000000000030', 250.30, '2024-10-06'),
+    (2, 4, '000000000030', 250.30, '2024-10-06'),
     -- Verduras
-    (1, 1, '000000000031', 350.00, '2024-10-06'),
+    (2, 4, '000000000031', 350.00, '2024-10-06'),
     -- Huevos
-    (1, 1, '000000000032', 550.90, '2024-10-06'),
+    (2, 4, '000000000032', 550.90, '2024-10-06'),
     -- Frutillas Congeladas
-    (1, 1, '000000000033', 400.70, '2024-10-06'),
+    (2, 4, '000000000033', 400.70, '2024-10-06'),
     -- Verduras Mixtas Congeladas
-    (1, 1, '000000000034', 450.00, '2024-10-06'),
+    (2, 4, '000000000034', 450.00, '2024-10-06'),
     -- Papas Fritas
-    (1, 1, '000000000035', 500.50, '2024-10-06'),
+    (2, 4, '000000000035', 500.50, '2024-10-06'),
     -- Helado de Chocolate
-    (1, 1, '000000000036', 1100.00, '2024-10-06'),
+    (2, 4, '000000000036', 1100.00, '2024-10-06'),
     -- Asado de Tira
-    (1, 1, '000000000037', 750.50, '2024-10-06'),
+    (2, 4, '000000000037', 750.50, '2024-10-06'),
     -- Hamburguesa de Carne
-    (1, 1, '000000000038', 320.25, '2024-10-06'),
+    (2, 4, '000000000038', 320.25, '2024-10-06'),
     -- Shampoo
-    (1, 1, '000000000039', 150.75, '2024-10-06'),
+    (2, 4, '000000000039', 150.75, '2024-10-06'),
     -- Pasta Dental
-    (1, 1, '000000000040', 210.30, '2024-10-06'),
+    (2, 4, '000000000040', 210.30, '2024-10-06'),
     -- Desodorante Mujer
-    (1, 1, '000000000041', 600.40, '2024-10-06'),
+    (2, 4, '000000000041', 600.40, '2024-10-06'),
     -- Crema Hidratante
-    (1, 1, '000000000042', 300.80, '2024-10-06'),
+    (2, 4, '000000000042', 300.80, '2024-10-06'),
     -- Toallas Higiénicas
-    (1, 1, '000000000043', 550.60, '2024-10-06'),
+    (2, 4, '000000000043', 550.60, '2024-10-06'),
     -- Protección para Adultos
-    (1, 1, '000000000044', 70.50, '2024-10-06'),
+    (2, 4, '000000000044', 70.50, '2024-10-06'),
     -- Esponjas
-    (1, 1, '000000000045', 180.25, '2024-10-06'),
+    (2, 4, '000000000045', 180.25, '2024-10-06'),
     -- Detergente Líquido
-    (1, 1, '000000000046', 230.70, '2024-10-06');
+    (2, 4, '000000000046', 230.70, '2024-10-06');
 -- Desinfectante
 
 -- SUCURSAL 2
 INSERT INTO productos_supermercados
     (nro_supermercado, nro_sucursal, cod_barra, precio, fecha_ult_actualizacion)
 VALUES
-    (1, 2, '7791234560011', 120.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560011', 120.00, '2024-09-01 10:00:00'),
     -- Coca-Cola Original 500ml
-    (1, 2, '7791234560028', 115.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560028', 115.00, '2024-09-01 10:00:00'),
     -- Pepsi 500ml
-    (1, 2, '7791234560035', 110.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560035', 110.00, '2024-09-01 10:00:00'),
     -- Fanta Naranja 500ml
-    (1, 2, '7791234560042', 130.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560042', 130.00, '2024-09-01 10:00:00'),
     -- Schweppes Pomelo 500ml
-    (1, 2, '7791234560059', 120.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560059', 120.00, '2024-09-01 10:00:00'),
     -- Sprite Limon 500ml
-    (1, 2, '7791234560066', 135.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560066', 135.00, '2024-09-01 10:00:00'),
     -- Schweppes Tonica 500ml
-    (1, 2, '7791234560073', 150.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560073', 150.00, '2024-09-01 10:00:00'),
     -- Cepita Naranja 1L
-    (1, 2, '7791234560080', 155.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560080', 155.00, '2024-09-01 10:00:00'),
     -- Baggio Multifruta 1L
-    (1, 2, '7791234560097', 160.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560097', 160.00, '2024-09-01 10:00:00'),
     -- Baggio Durazno 1L
-    (1, 2, '7791234560103', 165.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560103', 165.00, '2024-09-01 10:00:00'),
     -- Cepita Multifruta 1L
-    (1, 2, '7791234560110', 170.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560110', 170.00, '2024-09-01 10:00:00'),
     -- Villa del Sur con Gas 500ml
-    (1, 2, '7791234560127', 175.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560127', 175.00, '2024-09-01 10:00:00'),
     -- Eco de los Andes sin Gas 1L
-    (1, 2, '7791234560134', 180.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560134', 180.00, '2024-09-01 10:00:00'),
     -- Bon Aqua Pomelo saborizada 1L
-    (1, 2, '7791234560141', 185.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560141', 185.00, '2024-09-01 10:00:00'),
     -- Bon Aqua Pera saborizada 1L
-    (1, 2, '7791234560158', 190.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560158', 190.00, '2024-09-01 10:00:00'),
     -- Bon Aqua Manzana saborizada 1L
-    (1, 2, '000000000004', 110.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000004', 110.00, '2024-09-01 10:00:00'),
     -- Cerveza Quilmes 1L
-    (1, 2, '000000000005', 200.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000005', 200.00, '2024-09-01 10:00:00'),
     -- Aceite de Oliva
-    (1, 2, '000000000006', 90.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000006', 90.00, '2024-09-01 10:00:00'),
     -- Aceitunas Verdes
-    (1, 2, '7791234560165', 100.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560165', 100.00, '2024-09-01 10:00:00'),
     -- Hellmanns Mayonesa 500g
-    (1, 2, '7791234560172', 105.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560172', 105.00, '2024-09-01 10:00:00'),
     -- Danica Ketchup 300g
-    (1, 2, '7791234560189', 110.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560189', 110.00, '2024-09-01 10:00:00'),
     -- Mostaza Natura 250g
-    (1, 2, '7791234560196', 115.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560196', 115.00, '2024-09-01 10:00:00'),
     -- Salsa Golf Hellmanns 350g
-    (1, 2, '000000000008', 130.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000008', 130.00, '2024-09-01 10:00:00'),
     -- Arroz largo No se pasa
-    (1, 2, '000000000009', 85.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000009', 85.00, '2024-09-01 10:00:00'),
     -- Caldo de Pollo
-    (1, 2, '7791234560202', 145.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560202', 145.00, '2024-09-01 10:00:00'),
     -- La Virginia Cafe Molido 500g
-    (1, 2, '7791234560219', 150.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560219', 150.00, '2024-09-01 10:00:00'),
     -- Recetas de la Abuela 200g
-    (1, 2, '7791234560226', 155.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560226', 155.00, '2024-09-01 10:00:00'),
     -- Bagley Galletitas Saladas 150g
-    (1, 2, '7791234560233', 160.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560233', 160.00, '2024-09-01 10:00:00'),
     -- Sancor Leche en Polvo 400g
-    (1, 2, '7791234560240', 165.00, '2024-09-01 10:00:00'),
+    (2, 4, '7791234560240', 165.00, '2024-09-01 10:00:00'),
     -- Taragui Yerba Mate 1Kg
-    (1, 2, '000000000011', 70.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000011', 70.00, '2024-09-01 10:00:00'),
     -- Chocolate con Leche
-    (1, 2, '000000000012', 75.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000012', 75.00, '2024-09-01 10:00:00'),
     -- Polenta
-    (1, 2, '000000000013', 80.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000013', 80.00, '2024-09-01 10:00:00'),
     -- Pan Lactal
-    (1, 2, '000000000014', 85.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000014', 85.00, '2024-09-01 10:00:00'),
     -- Preparado para Tortas
-    (1, 2, '000000000015', 90.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000015', 90.00, '2024-09-01 10:00:00'),
     -- Fideos Espagueti
-    (1, 2, '000000000016', 95.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000016', 95.00, '2024-09-01 10:00:00'),
     -- Sal Fina
-    (1, 2, '000000000017', 100.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000017', 100.00, '2024-09-01 10:00:00'),
     -- Nachos
-    (1, 2, '000000000018', 105.00, '2024-09-01 10:00:00'),
+    (2, 4, '000000000018', 105.00, '2024-09-01 10:00:00'),
     -- Dulce de Leche
-    (1, 2, '000000000019', 120.50, '2024-10-06'),
+    (2, 4, '000000000019', 120.50, '2024-10-06'),
     -- Leche Larga Vida
-    (1, 2, '000000000020', 200.75, '2024-10-06'),
+    (2, 4, '000000000020', 200.75, '2024-10-06'),
     -- Crema de Leche
-    (1, 2, '000000000021', 85.90, '2024-10-06'),
+    (2, 4, '000000000021', 85.90, '2024-10-06'),
     -- Yogur Natural
-    (1, 2, '000000000022', 250.00, '2024-10-06'),
+    (2, 4, '000000000022', 250.00, '2024-10-06'),
     -- Manteca
-    (1, 2, '000000000023', 350.50, '2024-10-06'),
+    (2, 4, '000000000023', 350.50, '2024-10-06'),
     -- Queso Finlandia Clasico
-    (1, 2, '000000000024', 450.75, '2024-10-06'),
+    (2, 4, '000000000024', 450.75, '2024-10-06'),
     -- Jamón Cocido
-    (1, 2, '000000000025', 1200.00, '2024-10-06'),
+    (2, 4, '000000000025', 1200.00, '2024-10-06'),
     -- Carne de Res
-    (1, 2, '000000000026', 850.50, '2024-10-06'),
+    (2, 4, '000000000026', 850.50, '2024-10-06'),
     -- Carne de Cerdo
-    (1, 2, '000000000027', 720.25, '2024-10-06'),
+    (2, 4, '000000000027', 720.25, '2024-10-06'),
     -- Pollo Entero
-    (1, 2, '000000000028', 650.00, '2024-10-06'),
+    (2, 4, '000000000028', 650.00, '2024-10-06'),
     -- Filete de Merluza
-    (1, 2, '000000000029', 180.90, '2024-10-06'),
+    (2, 4, '000000000029', 180.90, '2024-10-06'),
     -- Manzanas
-    (1, 2, '000000000030', 250.30, '2024-10-06'),
+    (2, 4, '000000000030', 250.30, '2024-10-06'),
     -- Verduras
-    (1, 2, '000000000031', 350.00, '2024-10-06'),
+    (2, 4, '000000000031', 350.00, '2024-10-06'),
     -- Huevos
-    (1, 2, '000000000032', 550.90, '2024-10-06'),
+    (2, 4, '000000000032', 550.90, '2024-10-06'),
     -- Frutillas Congeladas
-    (1, 2, '000000000033', 400.70, '2024-10-06'),
+    (2, 4, '000000000033', 400.70, '2024-10-06'),
     -- Verduras Mixtas Congeladas
-    (1, 2, '000000000034', 450.00, '2024-10-06'),
+    (2, 4, '000000000034', 450.00, '2024-10-06'),
     -- Papas Fritas
-    (1, 2, '000000000035', 500.50, '2024-10-06'),
+    (2, 4, '000000000035', 500.50, '2024-10-06'),
     -- Helado de Chocolate
-    (1, 2, '000000000036', 1100.00, '2024-10-06'),
+    (2, 4, '000000000036', 1100.00, '2024-10-06'),
     -- Asado de Tira
-    (1, 2, '000000000037', 750.50, '2024-10-06'),
+    (2, 4, '000000000037', 750.50, '2024-10-06'),
     -- Hamburguesa de Carne
-    (1, 2, '000000000038', 320.25, '2024-10-06'),
+    (2, 4, '000000000038', 320.25, '2024-10-06'),
     -- Shampoo
-    (1, 2, '000000000039', 150.75, '2024-10-06'),
+    (2, 4, '000000000039', 150.75, '2024-10-06'),
     -- Pasta Dental
-    (1, 2, '000000000040', 210.30, '2024-10-06'),
+    (2, 4, '000000000040', 210.30, '2024-10-06'),
     -- Desodorante Mujer
-    (1, 2, '000000000041', 600.40, '2024-10-06'),
+    (2, 4, '000000000041', 600.40, '2024-10-06'),
     -- Crema Hidratante
-    (1, 2, '000000000042', 300.80, '2024-10-06'),
+    (2, 4, '000000000042', 300.80, '2024-10-06'),
     -- Toallas Higiénicas
-    (1, 2, '000000000043', 550.60, '2024-10-06'),
+    (2, 4, '000000000043', 550.60, '2024-10-06'),
     -- Protección para Adultos
-    (1, 2, '000000000044', 70.50, '2024-10-06'),
+    (2, 4, '000000000044', 70.50, '2024-10-06'),
     -- Esponjas
-    (1, 2, '000000000045', 180.25, '2024-10-06'),
+    (2, 4, '000000000045', 180.25, '2024-10-06'),
     -- Detergente Líquido
-    (1, 2, '000000000046', 230.70, '2024-10-06');
+    (2, 4, '000000000046', 230.70, '2024-10-06');
 -- Desinfectante
 
 -- SUCURSAL 3
@@ -2611,8 +2564,8 @@ values
 /* Tabla: servicios_supermercados */
 /* ------------------------------- */
 
-INSERT INTO servicios_supermercados
-    (nro_supermercado, url_servicio, tipo_servicio, token_servicio, fecha_ult_act_servicio)
-VALUES
-    (1010, 'http://localhost:8080/api/supermarkets/sucursales', 'Rest', 'TOKEN12345', GETDATE()),
-    (1011, 'http://localhost:8081/services/supermercados.wsdl', 'WS', 'TOKEN67890', GETDATE());
+-- INSERT INTO servicios_supermercados
+--     (nro_supermercado, url_servicio, tipo_servicio, token_servicio, fecha_ult_act_servicio)
+-- VALUES
+--     (1010, 'http://localhost:8080/api/supermarkets/sucursales', 'Rest', 'TOKEN12345', GETDATE()),
+--     (1011, 'http://localhost:8081/services/supermercados.wsdl', 'WS', 'TOKEN67890', GETDATE());

@@ -4,7 +4,6 @@ import ar.edu.ubp.das.indecrest.batch.base.BaseSupermarketProvider;
 
 import ar.edu.ubp.das.indecrest.beans.ProductoSucursalesBean;
 import ar.edu.ubp.das.indecrest.beans.requests.ProductoPorSucursalRequest;
-import ar.edu.ubp.das.indecrest.beans.responses.ProductoResponse;
 import ar.edu.ubp.das.indecrest.beans.responses.SucursalSupermarketResponse;
 import ar.edu.ubp.das.indecrest.utils.Httpful;
 import com.google.gson.reflect.TypeToken;

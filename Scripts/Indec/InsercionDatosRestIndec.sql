@@ -160,15 +160,15 @@ VALUES
 
 
 
--- Insertar en la tabla 'servicios_supermercados'
-INSERT INTO servicios_supermercados
-    (nro_supermercado, url_servicio, tipo_servicio, token_servicio, fecha_ult_act_servicio)
-VALUES
-    (1010, 'http://localhost:8080/api/supermarkets/sucursales', 'Rest', 'TOKEN12345', GETDATE());
-INSERT INTO servicios_supermercados
-    (nro_supermercado, url_servicio, tipo_servicio, token_servicio, fecha_ult_act_servicio)
-VALUES
-    (1011, 'http://localhost:8081/services/supermercados.wsdl', 'WS', 'TOKEN67890', GETDATE());
+-- -- Insertar en la tabla 'servicios_supermercados'
+-- INSERT INTO servicios_supermercados
+--     (nro_supermercado, url_servicio, tipo_servicio, token_servicio, fecha_ult_act_servicio)
+-- VALUES
+--     (1010, 'http://localhost:8080/api/supermarkets/sucursales', 'Rest', 'TOKEN12345', GETDATE());
+-- INSERT INTO servicios_supermercados
+--     (nro_supermercado, url_servicio, tipo_servicio, token_servicio, fecha_ult_act_servicio)
+-- VALUES
+--     (1011, 'http://localhost:8081/services/supermercados.wsdl', 'WS', 'TOKEN67890', GETDATE());
 
 -- Insertar en la tabla 'rubros_productos'
 INSERT INTO rubros_productos

@@ -1,6 +1,7 @@
 package ar.edu.ubp.das.supermercadosws.services;
 //import ar.edu.ubp.das.supermercadosws.beans.SucursalBean;
 import ar.edu.ubp.das.supermercadosws.beans.*;
+import ar.edu.ubp.das.supermercadosws.repositories.ProductosRepository;
 import ar.edu.ubp.das.supermercadosws.repositories.SupermercadosRepository;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
@@ -22,6 +23,9 @@ public class SupermercadosWs {
     @Autowired
     private SupermercadosRepository supermercadosRepository;
 
+    @Autowired
+    private ProductosRepository productosRepository;
+
     @WebMethod(operationName = "GetSupermercados")
     @RequestWrapper(localName = "GetSupermercadosRequest")
     @ResponseWrapper(localName = "GetSupermercadosResponse")
@@ -36,5 +40,13 @@ public class SupermercadosWs {
     @WebResult(name = "SucursalesResponse")
     public List<SucursalBean> GetSucursales() {
         return supermercadosRepository.getSucursales();
+    }
+
+    @WebMethod(operationName = "GetProductos")
+    @RequestWrapper(localName = "GetProductosRequest")
+    @ResponseWrapper(localName = "GetProductosResponse")
+    @WebResult(name = "ProductosResponse")
+    public List<ProductoSucursalBean> GetProductos() {
+        return productosRepository.obtenerProductos();
     }
 }

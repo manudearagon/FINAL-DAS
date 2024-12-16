@@ -1,35 +1,38 @@
 package ar.edu.ubp.das.indecrest.beans;
 
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "ProductosResponse")
 public class ProductoSucursalesBean {
-    private int nro_sucursal;
-    private String cod_barra;
+    private int nroSucursal;
+    private String codBarra;
     private Double precio;
-    private Integer vigente;
+    private Boolean vigente;
 
     public ProductoSucursalesBean() {
     }
 
-    public ProductoSucursalesBean(int nro_sucursal, String cod_barra, Double precio, Integer vigente) {
-        this.nro_sucursal = nro_sucursal;
-        this.cod_barra = cod_barra;
+    public ProductoSucursalesBean(int nro_sucursal, String cod_barra, Double precio, Boolean vigente) {
+        this.nroSucursal = nro_sucursal;
+        this.codBarra = cod_barra;
         this.precio = precio;
         this.vigente = vigente;
     }
 
-    public int getNro_sucursal() {
-        return nro_sucursal;
+    public int getNroSucursal() {
+        return nroSucursal;
     }
 
-    public void setNro_sucursal(int nro_sucursal) {
-        this.nro_sucursal = nro_sucursal;
+    public void setNroSucursal(int nroSucursal) {
+        this.nroSucursal = nroSucursal;
     }
 
-    public String getCod_barra() {
-        return cod_barra;
+    public String getCodBarra() {
+        return codBarra;
     }
 
-    public void setCod_barra(String cod_barra) {
-        this.cod_barra = cod_barra;
+    public void setCodBarra(String codBarra) {
+        this.codBarra = codBarra;
     }
 
     public Double getPrecio() {
@@ -40,11 +43,11 @@ public class ProductoSucursalesBean {
         this.precio = precio;
     }
 
-    public Integer getVigente() {
+    public Boolean getVigente() {
         return vigente;
     }
 
-    public void setVigente(Integer vigente) {
+    public void setVigente(Boolean vigente) {
         this.vigente = vigente;
     }
 }

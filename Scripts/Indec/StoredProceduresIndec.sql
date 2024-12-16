@@ -293,3 +293,92 @@
 --     FROM idiomas;
 -- END;
 -- EXEC sp_obtener_idiomas;
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Obtencion de productos v2
+-- DROP PROCEDURE IF EXISTS sp_obtener_productos;
+-- CREATE PROCEDURE sp_obtener_productos
+--     @codIdioma VARCHAR(2),
+--     @nomProducto VARCHAR(255),
+--     @idMarca INT = NULL,
+--     @idCategoria INT = NULL,
+--     @pageIndex INT,
+--     @pageSize INT
+-- AS
+-- BEGIN
+--     WITH ProductData AS (
+--         SELECT 
+--             p.cod_barra,
+--             p.nom_producto,
+--             p.desc_producto,
+--             ic.categoria AS nombre_categoria,
+--             p.imagen,
+--             m.nom_marca AS nombre_marca,
+--             it.tipo_producto AS nombre_tipo_producto,
+--             p.vigente,
+--             ROW_NUMBER() OVER (ORDER BY p.cod_barra) AS RowNum
+--         FROM 
+--             productos p
+--         LEFT JOIN idiomas_categorias_productos ic
+--             ON p.nro_categoria = ic.nro_categoria AND ic.cod_idioma = @codIdioma
+--         LEFT JOIN marcas_productos m
+--             ON p.nro_marca = m.nro_marca
+--         LEFT JOIN idiomas_tipos_productos it
+--             ON p.nro_tipo_producto = it.nro_tipo_producto AND it.cod_idioma = @codIdioma
+--         WHERE
+--             p.nom_producto LIKE '%' + @nomProducto + '%'
+--             AND (@idMarca IS NULL OR p.nro_marca = @idMarca)
+--             AND (@idCategoria IS NULL OR p.nro_categoria = @idCategoria)
+--     )
+--     SELECT 
+--         cod_barra,
+--         nom_producto,
+--         desc_producto,
+--         nombre_categoria,
+--         imagen,
+--         nombre_marca,
+--         nombre_tipo_producto,
+--         vigente
+--     FROM 
+--         ProductData
+--     WHERE 
+--         RowNum BETWEEN (@pageIndex - 1) * @pageSize + 1 AND @pageIndex * @pageSize
+--     ORDER BY RowNum;
+-- END;
+
+
+-- EXEC sp_obtener_productos 'en', '', NULL, NULL, 1, 10;
+
+
+-- DROP PROCEDURE IF EXISTS sp_obtener_producto_por_codBarra;
+-- CREATE PROCEDURE sp_obtener_producto_por_codBarra
+--     @codIdioma VARCHAR(2),
+--     @codBarra VARCHAR(255)
+-- AS
+-- BEGIN
+--     SELECT 
+--         p.cod_barra,
+--         p.nom_producto,
+--         p.desc_producto,
+--         ic.categoria AS nombre_categoria,
+--         p.imagen,
+--         m.nom_marca AS nombre_marca,
+--         it.tipo_producto AS nombre_tipo_producto,
+--         p.vigente
+--     FROM 
+--         productos p
+--     LEFT JOIN idiomas_categorias_productos ic
+--         ON p.nro_categoria = ic.nro_categoria AND ic.cod_idioma = @codIdioma
+--     LEFT JOIN marcas_productos m
+--         ON p.nro_marca = m.nro_marca
+--     LEFT JOIN idiomas_tipos_productos it
+--         ON p.nro_tipo_producto = it.nro_tipo_producto AND it.cod_idioma = @codIdioma
+--     WHERE 
+--         p.cod_barra = @codBarra;
+-- END;
+-- EXEC sp_obtener_producto_por_codBarra 
+--     @codIdioma = 'es',
+--     @codBarra = '0123456789012';
+
+-- SELECT * FROM productos_supermercados WHERE cod_barra = '0123456789012';

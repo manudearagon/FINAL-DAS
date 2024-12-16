@@ -2,7 +2,7 @@ package ar.edu.ubp.das.supermercadosrest.beans;
 
 public class ProductoSucursalBean {
     private int nroSucursal;
-    private int codBarra;
+    private String codBarra;
     private double precio;
     private Boolean vigente;
 
@@ -14,11 +14,11 @@ public class ProductoSucursalBean {
         this.nroSucursal = nroSucursal;
     }
 
-    public int getCodBarra() {
+    public String getCodBarra() {
         return codBarra;
     }
 
-    public void setCodBarra(int codBarra) {
+    public void setCodBarra(String codBarra) {
         this.codBarra = codBarra;
     }
 

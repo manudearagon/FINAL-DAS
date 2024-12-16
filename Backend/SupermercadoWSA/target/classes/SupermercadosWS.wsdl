@@ -12,6 +12,12 @@
   <message name="GetSucursalesResponse">
     <part name="parameters" element="tns:GetSucursalesResponse"/>
   </message>
+  <message name="GetProductos">
+    <part name="parameters" element="tns:GetProductosRequest"/>
+  </message>
+  <message name="GetProductosResponse">
+    <part name="parameters" element="tns:GetProductosResponse"/>
+  </message>
   <message name="GetSupermercados">
     <part name="parameters" element="tns:GetSupermercadosRequest"/>
   </message>
@@ -23,6 +29,10 @@
       <input wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetSucursalesRequest" message="tns:GetSucursales"/>
       <output wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetSucursalesResponse" message="tns:GetSucursalesResponse"/>
     </operation>
+    <operation name="GetProductos">
+      <input wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetProductosRequest" message="tns:GetProductos"/>
+      <output wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetProductosResponse" message="tns:GetProductosResponse"/>
+    </operation>
     <operation name="GetSupermercados">
       <input wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetSupermercadosRequest" message="tns:GetSupermercados"/>
       <output wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetSupermercadosResponse" message="tns:GetSupermercadosResponse"/>
@@ -31,6 +41,15 @@
   <binding name="SupermercadosWsPortBinding" type="tns:SupermercadosWs">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
     <operation name="GetSucursales">
+      <soap12:operation soapAction=""/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProductos">
       <soap12:operation soapAction=""/>
       <input>
         <soap12:body use="literal"/>

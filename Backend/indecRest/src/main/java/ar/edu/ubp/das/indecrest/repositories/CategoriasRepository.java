@@ -20,6 +20,5 @@ public class CategoriasRepository {
         return jdbcCallFactory.executeQuery(
                 "sp_obtener_categorias_productos_por_idioma", "dbo", params, "categorias", CategoryResponse.class
         );
-
     }
 }

@@ -6,30 +6,49 @@
       <xsd:import namespace="http://services.supermercadosws.das.ubp.edu.ar/" schemaLocation="SupermercadosWS_schema1.xsd"/>
     </xsd:schema>
   </types>
-  <message name="GetSucursales">
-    <part name="parameters" element="tns:GetSucursalesRequest"/>
-  </message>
-  <message name="GetSucursalesResponse">
-    <part name="parameters" element="tns:GetSucursalesResponse"/>
-  </message>
   <message name="GetSupermercados">
     <part name="parameters" element="tns:GetSupermercadosRequest"/>
   </message>
   <message name="GetSupermercadosResponse">
     <part name="parameters" element="tns:GetSupermercadosResponse"/>
   </message>
+  <message name="GetSucursales">
+    <part name="parameters" element="tns:GetSucursalesRequest"/>
+  </message>
+  <message name="GetSucursalesResponse">
+    <part name="parameters" element="tns:GetSucursalesResponse"/>
+  </message>
+  <message name="GetProductos">
+    <part name="parameters" element="tns:GetProductosRequest"/>
+  </message>
+  <message name="GetProductosResponse">
+    <part name="parameters" element="tns:GetProductosResponse"/>
+  </message>
   <portType name="SupermercadosWs">
-    <operation name="GetSucursales">
-      <input wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetSucursalesRequest" message="tns:GetSucursales"/>
-      <output wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetSucursalesResponse" message="tns:GetSucursalesResponse"/>
-    </operation>
     <operation name="GetSupermercados">
       <input wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetSupermercadosRequest" message="tns:GetSupermercados"/>
       <output wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetSupermercadosResponse" message="tns:GetSupermercadosResponse"/>
     </operation>
+    <operation name="GetSucursales">
+      <input wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetSucursalesRequest" message="tns:GetSucursales"/>
+      <output wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetSucursalesResponse" message="tns:GetSucursalesResponse"/>
+    </operation>
+    <operation name="GetProductos">
+      <input wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetProductosRequest" message="tns:GetProductos"/>
+      <output wsam:Action="http://services.supermercadosws.das.ubp.edu.ar/SupermercadosWs/GetProductosResponse" message="tns:GetProductosResponse"/>
+    </operation>
   </portType>
   <binding name="SupermercadosWsPortBinding" type="tns:SupermercadosWs">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="GetSupermercados">
+      <soap12:operation soapAction=""/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
     <operation name="GetSucursales">
       <soap12:operation soapAction=""/>
       <input>
@@ -39,7 +58,7 @@
         <soap12:body use="literal"/>
       </output>
     </operation>
-    <operation name="GetSupermercados">
+    <operation name="GetProductos">
       <soap12:operation soapAction=""/>
       <input>
         <soap12:body use="literal"/>

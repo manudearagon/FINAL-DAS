@@ -12,6 +12,7 @@ import ar.edu.ubp.das.indecrest.repositories.SucursalesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -49,24 +50,22 @@ public class BatchProcessService {
     }
 
     public void cargarProductos() {
-        List<ServiciosSupermercadoBean> servicios = supermercadosRepository.getServiciosSupermercados();
+//        List<ServiciosSupermercadoBean> servicios = supermercadosRepository.getServiciosSupermercados();
+        List<ServiciosSupermercadoBean> servicios = new ArrayList<>();
+        ServiciosSupermercadoBean servicio1 = new ServiciosSupermercadoBean();
+        servicio1.setTipoServicio("WS");
+        servicio1.setUrlServicio("http://localhost:8082/services/supermercados.wsdl");
+        servicio1.setNroSupermercado(3);
+        servicios.add(servicio1);
         try {
             for (ServiciosSupermercadoBean servicio : servicios) {
                 ISupermarketProvider provider = new SupermarketFactory().GetProvider(SupermarketTypes.fromValue(servicio.getTipoServicio()));
                 System.out.println("Servicio: " + servicio.getTipoServicio() + " - " + servicio.getUrlServicio());
-                List<SucursalSupermarketResponse> sucursalesExternas = provider.obtenerSucursales(servicio.getUrlServicio(), servicio.getNroSupermercado());
-                for (SucursalSupermarketResponse sucursal : sucursalesExternas) {
-                    try {
-                        List<ProductoPorSucursalRequest> productosExternos = provider.obtenerProductos(servicio.getUrlServicio(), servicio.getNroSupermercado());
-                            try {
-                                productosRepository.insertarProductos(productosExternos);
-
-                            } catch (Exception e) {
-                                System.out.println("Error procesando producto los productos: {" + e.getMessage() + "}");
-                            }
-                    } catch (Exception e) {
-                        System.out.println("Error procesando productos de la sucursal {" + sucursal.getNroSucursal() + "}: {" + e.getMessage() + "}");
-                    }
+                List<ProductoPorSucursalRequest> productosExternos = provider.obtenerProductos(servicio.getUrlServicio(), servicio.getNroSupermercado());
+                try {
+                        productosRepository.insertarProductos(productosExternos);
+                } catch (Exception e) {
+                    System.out.println("Error procesando producto los productos: {" + e.getMessage() + "}");
                 }
             }
         } catch (Exception e) {

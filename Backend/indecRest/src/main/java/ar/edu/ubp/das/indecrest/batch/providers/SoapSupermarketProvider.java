@@ -68,7 +68,14 @@ public class SoapSupermarketProvider extends BaseSupermarketProvider {
                 .password("pwd_admin")
                 .build();
 
-        List<ProductoSucursalesBean> productos = client.callServiceForList(ProductoSucursalesBean.class, "GetProductosResponse");
+        List<ProductoSucursalesBean> productos;
+        try {
+                productos = client.callServiceForList(ProductoSucursalesBean.class, "GetProductosResponse");
+        }
+        catch (Exception e) {
+            System.out.println("Error al obtener productos: " + e.getMessage());
+            return new ArrayList<>();
+        }
 
         List<ProductoPorSucursalRequest> response = new ArrayList<>();
 
@@ -76,15 +83,15 @@ public class SoapSupermarketProvider extends BaseSupermarketProvider {
             try {
                 ProductoPorSucursalRequest productoResponse = new ProductoPorSucursalRequest(
                         nroSupermercado,
-                        producto.getNro_sucursal(),
-                        producto.getCod_barra(),
+                        producto.getNroSucursal(),
+                        producto.getCodBarra(),
                         producto.getPrecio(),
                         producto.getVigente()
                 );
                 response.add(productoResponse);
-                System.out.println("Producto {" + producto.getCod_barra() + "} procesado exitosamente");
+                System.out.println("Producto {" + producto.getCodBarra() + "} procesado exitosamente");
             } catch (Exception e) {
-                System.out.println("Error procesando producto {" + producto.getCod_barra() + "}: {" + e.getMessage() + "}");
+                System.out.println("Error procesando producto {" + producto.getCodBarra() + "}: {" + e.getMessage() + "}");
             }
         }
 

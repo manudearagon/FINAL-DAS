@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" targetNamespace="http://services.supermercadosws.das.ubp.edu.ar/" xmlns:tns="http://services.supermercadosws.das.ubp.edu.ar/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+  <xs:element name="GetProductosRequest" type="tns:GetProductosRequest"/>
+
+  <xs:element name="GetProductosResponse" type="tns:GetProductosResponse"/>
+
   <xs:element name="GetSucursalesRequest" type="tns:GetSucursalesRequest"/>
 
   <xs:element name="GetSucursalesResponse" type="tns:GetSucursalesResponse"/>
@@ -30,6 +34,25 @@
       <xs:element name="nroLocalidad" type="xs:int"/>
       <xs:element name="nroSucursal" type="xs:int"/>
       <xs:element name="telefonos" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetProductosRequest">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="GetProductosResponse">
+    <xs:sequence>
+      <xs:element name="ProductosResponse" type="tns:productoSucursalBean" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="productoSucursalBean">
+    <xs:sequence>
+      <xs:element name="codBarra" type="xs:int"/>
+      <xs:element name="nroSucursal" type="xs:int"/>
+      <xs:element name="precio" type="xs:double"/>
+      <xs:element name="vigente" type="xs:boolean" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 

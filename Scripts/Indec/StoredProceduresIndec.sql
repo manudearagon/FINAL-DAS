@@ -378,5 +378,7 @@
 --         p.cod_barra = @codBarra;
 -- END;
 -- EXEC sp_obtener_producto_por_codBarra 
---     @codIdioma = 'en',
---     @codBarra = '7791234560011';
+--     @codIdioma = 'es',
+--     @codBarra = '0123456789012';
+
+-- SELECT * FROM productos_supermercados WHERE cod_barra = '0123456789012';

@@ -113,7 +113,7 @@ values
     (5, 'Tónica', (SELECT nro_rubro
         FROM dbo.rubros_productos
         WHERE nom_rubro = 'GASEOSAS'), 1);
-
+-- SELECT * FROM sucursales
 -- Rubro: JUGOS (nro_rubro = 2)
 insert into dbo.categorias_productos
     (nro_categoria,nom_categoria, nro_rubro, vigente)

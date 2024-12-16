@@ -1,5 +1,4 @@
 package ar.edu.ubp.das.supermercadosws.endpoints;
-//import ar.edu.ubp.das.supermercadosws.beans.SupermercadoBean;
 import ar.edu.ubp.das.supermercadosws.beans.*;
 import ar.edu.ubp.das.supermercadosws.services.SupermercadosWs;
 import ar.edu.ubp.das.supermercadosws.services.jaxws.*;

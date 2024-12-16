@@ -10,7 +10,7 @@ public class ProductoPorSucursalRequest extends ProductoSucursalesBean {
             int nro_sucursal,
             String cod_barra,
             Double precio,
-            Integer vigente
+            Boolean vigente
     ) {
         super(nro_sucursal, cod_barra, precio, vigente);
         this.nro_supermercado = nro_supermercado;

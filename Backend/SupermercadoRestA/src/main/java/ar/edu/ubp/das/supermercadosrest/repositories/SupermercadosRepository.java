@@ -43,23 +43,6 @@ public class SupermercadosRepository {
         return jdbcCallFactory.executeQuery("get_sucursales", "dbo", params, "sucursales", SucursalBean.class);
     }
 
-    public List<ProductoBean> getProductos(String nomSupermercado) {
-        SqlParameterSource params = new MapSqlParameterSource()
-                .addValue("nro_supermercado", nomSupermercado);
-        return jdbcCallFactory.executeQuery("get_productos", "dbo", params, "productos", ProductoBean.class);
-    }
-
-    public List<CategoriaProductoBean> getCategorias() {
-        return jdbcCallFactory.executeQuery("get_categorias", "dbo", "categorias", CategoriaProductoBean.class);
-    }
-
-    public List<ProductoBean> getProductosPorCategoria(String nomSupermercado, int idCategoria) {
-        SqlParameterSource params = new MapSqlParameterSource()
-                .addValue("nro_supermercado", nomSupermercado)
-                .addValue("id_categoria", idCategoria);
-        return jdbcCallFactory.executeQuery("get_productos_por_categoria", "dbo", params, "productos", ProductoBean.class);
-    }
-
     public void updateSupermercado(SupermercadoBean supermercado) {
         SqlParameterSource params = new MapSqlParameterSource()
                 .addValue("cuit", supermercado.getCuit())

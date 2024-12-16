@@ -19,7 +19,7 @@ public class RestSupermarketProvider extends BaseSupermarketProvider {
 
     public List<SucursalSupermarketResponse> obtenerSucursales(String url, int nroSupermercado) {
 
-        List<SucursalSupermarketResponse> response = new Httpful(url)
+        List<SucursalSupermarketResponse> response = new Httpful(url + "/sucursales")
                 .basicAuth("usr_admin", "pwd_admin")
                 .method(HttpMethod.POST)
                 .execute(new TypeToken<List<SucursalSupermarketResponse>>() {}.getType());
@@ -27,7 +27,7 @@ public class RestSupermarketProvider extends BaseSupermarketProvider {
     }
 
     public List<ProductoPorSucursalRequest> obtenerProductos(String url, int nroSupermercado) {
-        List<ProductoSucursalesBean> productoSucursalesBean = new Httpful(url)
+        List<ProductoSucursalesBean> productoSucursalesBean = new Httpful(url + "/productos")
                 .basicAuth("usr_admin", "pwd_admin")
                 .method(HttpMethod.POST)
                 .execute(new TypeToken<List<ProductoSucursalesBean>>() {}.getType());
@@ -38,15 +38,15 @@ public class RestSupermarketProvider extends BaseSupermarketProvider {
             try {
                 ProductoPorSucursalRequest productoRequest = new ProductoPorSucursalRequest(
                         nroSupermercado,
-                        producto.getNro_sucursal(),
-                        producto.getCod_barra(),
+                        producto.getNroSucursal(),
+                        producto.getCodBarra(),
                         producto.getPrecio(),
                         producto.getVigente()
                 );
                 response.add(productoRequest);
-                System.out.println("Producto {" + producto.getCod_barra() + "} procesado exitosamente");
+                System.out.println("Producto {" + producto.getCodBarra() + "} procesado exitosamente");
             } catch (Exception e) {
-                System.out.println("Error procesando producto {" + producto.getCod_barra() + "}: {" + e.getMessage() + "}");
+                System.out.println("Error procesando producto {" + producto.getCodBarra() + "}: {" + e.getMessage() + "}");
             }
         }
 
